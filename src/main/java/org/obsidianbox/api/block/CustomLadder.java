@@ -23,17 +23,18 @@
  */
 package org.obsidianbox.api.block;
 
+import java.util.List;
+
 import cpw.mods.fml.common.registry.GameRegistry;
 import net.minecraft.block.BlockLadder;
 import net.minecraft.client.resources.I18n;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+
 import org.obsidianbox.api.Game;
 import org.obsidianbox.api.addon.Addon;
 import org.obsidianbox.api.lang.Languages;
-
-import java.util.List;
 
 public class CustomLadder extends BlockLadder {
     private final Addon addon;
@@ -66,6 +67,4 @@ public class CustomLadder extends BlockLadder {
     public void getSubBlocks(Item item, CreativeTabs tab, List list) {
         list.add(new ItemStack(item, 1, 0));
     }
-
-
 }
