@@ -36,6 +36,7 @@ public class Materials {
     public static final CustomSlabMaterial CUSTOM_SLAB = new CustomSlabMaterial();
     public static final CustomStairMaterial CUSTOM_STAIR = new CustomStairMaterial();
     public static final CustomWallMaterial CUSTOM_WALL = new CustomWallMaterial();
+    public static final CustomLadderMaterial CUSTOM_LADDER = new CustomLadderMaterial();
 
     public static class CustomBlockMaterial extends Material {
         public CustomBlockMaterial() {
@@ -87,6 +88,12 @@ public class Materials {
 
     public static class CustomWallMaterial extends Material {
         public CustomWallMaterial() {
+            super(MapColor.clayColor);
+        }
+    }
+
+    public static class CustomLadderMaterial extends Material {
+        public CustomLadderMaterial() {
             super(MapColor.clayColor);
         }
     }
