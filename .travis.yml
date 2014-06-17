@@ -20,7 +20,7 @@ notifications:
   email: false
   webhooks:
     # Send build information and status to Notifico
-    - http://n.tkte.ch/h/2909/F3taJXCa-meUKgrnNWH5FxFb
+    - http://n.tkte.ch/h/2909/F2YRRWsmXlSab_It7DfM4TMb
 
 # Environmental system variables
 env:
