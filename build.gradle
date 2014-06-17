@@ -83,6 +83,7 @@ repositories {
 dependencies {
     compile 'junit:junit:4.11'
     compile 'org.spout:caustic-lwjgl:1.0.0-SNAPSHOT'
+    compile files("${System.properties['java.home']}/lib/jfxrt.jar")
     testCompile 'junit:junit:4.11'
 }
 
