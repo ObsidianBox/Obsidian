@@ -90,8 +90,11 @@ dependencies {
 // Include dependencies in the final JAR
 shadow {
     artifactAttached = false
-    include 'com/flowpowered/**'
-    include 'org/spout/**'
+    artifactSet {
+        include 'com.flowpowered'
+        include 'org.spout'
+    }
+    exclude 'shaders/'
 }
 
 // Filter, process, and include resources
