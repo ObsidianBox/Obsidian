@@ -4,7 +4,7 @@ jdk: oraclejdk7
 
 # Compile and package JAR and set build properties
 install:
-  - ./gradlew setupDecompWorkspace
+  - ./gradlew setupCIWorkspace
   - ./gradlew build -PbuildNumber=$TRAVIS_BUILD_NUMBER -PciSystem=travis -Pcommit=${TRAVIS_COMMIT:0:7}
 
 # Perform steps after compilation/test success
