@@ -36,7 +36,7 @@ import org.obsidianbox.api.Game;
 import org.obsidianbox.api.util.RenderUtil;
 
 public class ObsidianMainMenu extends GuiScreen {
-    private static ResourceLocation gameLogo = new ResourceLocation(Game.MOD_ID.toLowerCase(), "textures/gui/internal/" + Game.MOD_ID.toLowerCase() + ".png");
+    private static ResourceLocation gameLogo = new ResourceLocation(Game.MOD_ID.toLowerCase(), "textures/gui/" + Game.MOD_ID.toLowerCase() + ".png");
     private static final ObsidianBackground background = new ObsidianBackground();
 
     @Override

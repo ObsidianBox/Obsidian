@@ -57,6 +57,6 @@ public abstract class BlockRenderer implements ISimpleBlockRenderingHandler {
      */
     public void put(Addon addon, String identifier, Block block) {
         registered.add(block);
-        models.put(block, AdvancedModelLoader.loadModel(new ResourceLocation(Game.MOD_ID.toLowerCase() + ":models/blocks/" + addon.getDescription().getIdentifier() + "/" + identifier + ".obj")));
+        models.put(block, AdvancedModelLoader.loadModel(new ResourceLocation(addon.getDescription().getIdentifier() + ":models/blocks/" + identifier + ".obj")));
     }
 }

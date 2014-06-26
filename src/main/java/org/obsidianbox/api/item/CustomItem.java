@@ -39,7 +39,7 @@ public class CustomItem extends Item {
         this.addon = addon;
         this.identifier = identifier;
 
-        setTextureName(Game.MOD_ID.toLowerCase() + ":" + addon.getDescription().getIdentifier() + "/" + identifier);
+        setTextureName(addon.getDescription().getIdentifier()  + ":" + identifier);
         addon.getGame().getLanguages().put(addon, Languages.ENGLISH_AMERICAN, "item." + identifier + ".name", displayName);
         if (showInCreativeTab) {
             setCreativeTab(addon.getGame().getTabs());

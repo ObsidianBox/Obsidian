@@ -49,7 +49,7 @@ public class CustomFenceGate extends BlockFenceGate {
         this.identifier = identifier;
 
         setBlockName(addon.getDescription().getIdentifier() + ".tile.block." + identifier);
-        setBlockTextureName(Game.MOD_ID.toLowerCase() + ":" + addon.getDescription().getIdentifier() + "/" + identifier);
+        setBlockTextureName(addon.getDescription().getIdentifier()  + ":" + "gates/" + identifier);
         addon.getGame().getLanguages().put(addon, Languages.ENGLISH_AMERICAN, "tile.block." + identifier + ".name", displayName);
         if (showInCreativeTab) {
             setCreativeTab(addon.getGame().getTabs());

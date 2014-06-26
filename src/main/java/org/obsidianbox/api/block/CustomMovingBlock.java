@@ -41,7 +41,7 @@ public class CustomMovingBlock extends BlockFalling {
         this.identifier = identifier;
 
         setBlockName(addon.getDescription().getIdentifier() + ".tile.block." + identifier);
-        setBlockTextureName(Game.MOD_ID.toLowerCase() + ":" + addon.getDescription().getIdentifier() + "/moving/" + identifier);
+        setBlockTextureName(addon.getDescription().getIdentifier()  + ":" + "moving/" + identifier);
         addon.getGame().getLanguages().put(addon, Languages.ENGLISH_AMERICAN, "tile.block." + identifier + ".name", displayName);
         if (showInCreativeTab) {
             setCreativeTab(addon.getGame().getTabs());

@@ -40,7 +40,7 @@ public class CustomSpade extends ItemSpade {
         this.addon = addon;
         this.identifier = identifier;
 
-        setTextureName(Game.MOD_ID.toLowerCase() + ":" + addon.getDescription().getIdentifier() + "/spades/" + identifier);
+        setTextureName(addon.getDescription().getIdentifier()  + ":" + "spades/" + identifier);
         addon.getGame().getLanguages().put(addon, Languages.ENGLISH_AMERICAN, "item." + identifier + ".name", displayName);
         if (showInCreativeTab) {
             setCreativeTab(addon.getGame().getTabs());

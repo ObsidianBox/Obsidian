@@ -42,7 +42,7 @@ public class AddonResourcePack implements IResourcePack {
 
     public AddonResourcePack(Addon addon) {
         this.addon = addon;
-        domains.add(Game.MOD_ID.toLowerCase());
+        domains.add(addon.getDescription().getIdentifier());
     }
 
     @Override
@@ -52,7 +52,7 @@ public class AddonResourcePack implements IResourcePack {
 
     private InputStream getResourceStream(ResourceLocation resourceLocation) {
         // TODO Check this
-        return addon.getClass().getResourceAsStream(String.format("/assets/%s/%s", resourceLocation.getResourceDomain(), resourceLocation.getResourcePath()));
+        return addon.getClass().getResourceAsStream(String.format("/assets/%s/%s", addon.getDescription().getIdentifier(), resourceLocation.getResourcePath()));
     }
 
     @Override
