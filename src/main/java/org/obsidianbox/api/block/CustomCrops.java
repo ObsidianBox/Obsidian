@@ -53,7 +53,7 @@ public class CustomCrops extends BlockCrops {
         this.addon = addon;
         this.identifier = identifier;
         setBlockName(addon.getDescription().getIdentifier() + ".tile.block." + identifier);
-        setBlockTextureName(Game.MOD_ID.toLowerCase() + ":" + addon.getDescription().getIdentifier() + "/" + identifier);
+        setBlockTextureName(addon.getDescription().getIdentifier()  + ":" + "crops/" + identifier);
         addon.getGame().getLanguages().put(addon, Languages.ENGLISH_AMERICAN, "tile.block." + identifier + ".name", displayName);
         setTickRandomly(tickRandomly);
         setBlockBounds(minBounds.getX(), minBounds.getY(), minBounds.getZ(), maxBounds.getX(), maxBounds.getY(), maxBounds.getZ());

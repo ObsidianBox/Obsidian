@@ -46,7 +46,7 @@ public class GameListener {
 
     public GameListener(Game game) {
         this.game = game;
-        alphaResource = new ResourceLocation(Game.MOD_ID.toLowerCase(), "textures/gui/" + ((CommonAddonManager) game.getAddonManager()).getInternalAddon().getDescription().getIdentifier() + "/watermark.png");
+        alphaResource = new ResourceLocation(Game.MOD_ID.toLowerCase(), "textures/gui/watermark.png");
     }
 
     @SubscribeEvent

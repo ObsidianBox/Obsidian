@@ -40,7 +40,7 @@ public class CustomAxe extends ItemAxe {
         this.addon = addon;
         this.identifier = identifier;
 
-        setTextureName(Game.MOD_ID.toLowerCase() + ":" + addon.getDescription().getIdentifier() + "/axes/" + identifier);
+        setTextureName(addon.getDescription().getIdentifier()  + ":" + "axes/" + identifier);
         addon.getGame().getLanguages().put(addon, Languages.ENGLISH_AMERICAN, "item." + identifier + ".name", displayName);
         if (showInCreativeTab) {
             setCreativeTab(addon.getGame().getTabs());

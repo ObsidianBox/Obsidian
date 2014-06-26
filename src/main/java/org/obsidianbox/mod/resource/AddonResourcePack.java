@@ -33,6 +33,7 @@ import net.minecraft.client.resources.IResourcePack;
 import net.minecraft.client.resources.data.IMetadataSection;
 import net.minecraft.client.resources.data.IMetadataSerializer;
 import net.minecraft.util.ResourceLocation;
+import org.obsidianbox.api.Game;
 import org.obsidianbox.api.addon.Addon;
 
 public class AddonResourcePack implements IResourcePack {
@@ -45,13 +46,13 @@ public class AddonResourcePack implements IResourcePack {
     }
 
     @Override
-    public InputStream getInputStream(ResourceLocation resourceLocation) throws IOException {
+    public InputStream getInputStream(ResourceLocation resourceLocation) {
         return getResourceStream(resourceLocation);
     }
 
     private InputStream getResourceStream(ResourceLocation resourceLocation) {
         // TODO Check this
-        return addon.getClass().getResourceAsStream(String.format("/assets/%s/%s", resourceLocation.getResourceDomain(), resourceLocation.getResourcePath()));
+        return addon.getClass().getResourceAsStream(String.format("/assets/%s/%s", addon.getDescription().getIdentifier(), resourceLocation.getResourcePath()));
     }
 
     @Override
@@ -65,12 +66,12 @@ public class AddonResourcePack implements IResourcePack {
     }
 
     @Override
-    public IMetadataSection getPackMetadata(IMetadataSerializer var1, String var2) throws IOException {
+    public IMetadataSection getPackMetadata(IMetadataSerializer var1, String var2) {
         return null;
     }
 
     @Override
-    public BufferedImage getPackImage() throws IOException {
+    public BufferedImage getPackImage() {
         return null;
     }
 

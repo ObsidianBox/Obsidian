@@ -43,7 +43,7 @@ public class CustomTool extends ItemTool {
         this.addon = addon;
         this.identifier = identifier;
 
-        setTextureName(Game.MOD_ID.toLowerCase() + ":" + addon.getDescription().getIdentifier() + "/tools/" + identifier);
+        setTextureName(addon.getDescription().getIdentifier()  + ":" + "tools/" + identifier);
         addon.getGame().getLanguages().put(addon, Languages.ENGLISH_AMERICAN, "item." + identifier + ".name", displayName);
         if (showInCreativeTab) {
             setCreativeTab(addon.getGame().getTabs());

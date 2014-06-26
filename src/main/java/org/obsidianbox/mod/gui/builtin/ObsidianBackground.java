@@ -47,7 +47,7 @@ public class ObsidianBackground extends Gui {
         } else {
             symbolicName = "night";
         }
-        return new ResourceLocation(Game.MOD_ID.toLowerCase(), "textures/gui/internal/background/" + symbolicName + "/background_" + (RANDOM.nextInt(5 - 1) + 1) + ".jpg");
+        return new ResourceLocation(Game.MOD_ID.toLowerCase(), "textures/gui/background/" + symbolicName + "/background_" + (RANDOM.nextInt(5 - 1) + 1) + ".jpg");
     }
 
     public void drawBackground(int x, int y, int width, int height) {

@@ -59,7 +59,7 @@ public class CustomDoor extends BlockDoor {
         this.isPoweredOnly = isPoweredOnly;
 
         setBlockName(addon.getDescription().getIdentifier() + ".tile.block." + identifier);
-        setBlockTextureName(Game.MOD_ID.toLowerCase() + ":" + addon.getDescription().getIdentifier() + "/" + identifier);
+        setBlockTextureName(addon.getDescription().getIdentifier()  + ":" + "doors/" + identifier);
         addon.getGame().getLanguages().put(addon, Languages.ENGLISH_AMERICAN, "tile.block." + identifier + ".name", displayName);
         GameRegistry.registerBlock(this, addon.getDescription().getIdentifier() + "_" + identifier + "_block");
     }
@@ -184,7 +184,7 @@ public class CustomDoor extends BlockDoor {
             this.identifier = identifier;
             this.associatedBlock = associatedBlock;
 
-            setTextureName(Game.MOD_ID.toLowerCase() + ":" + addon.getDescription().getIdentifier() + "/" + identifier);
+            setTextureName(addon.getDescription().getIdentifier() + ":" +  identifier);
             addon.getGame().getLanguages().put(addon, Languages.ENGLISH_AMERICAN, "item." + identifier + ".name", displayName);
             if (showInCreativeTab) {
                 setCreativeTab(addon.getGame().getTabs());

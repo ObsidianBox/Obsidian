@@ -69,6 +69,6 @@ public class SimpleOBJRenderer extends BlockRenderer {
     @Override
     public final void put(Addon addon, String identifier, Block block) {
         super.put(addon, identifier, block);
-        textures.put(block, new ResourceLocation(Game.MOD_ID.toLowerCase() + ":textures/blocks/" + addon.getDescription().getIdentifier() + "/" + identifier + ".png"));
+        textures.put(block, new ResourceLocation(addon.getDescription().getIdentifier() + ":textures/blocks/" + identifier + ".png"));
     }
 }

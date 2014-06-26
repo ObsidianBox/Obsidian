@@ -134,7 +134,7 @@ public abstract class Renderer {
             }
         }
 
-        final String shaderPath = "shaders/" + addon.getDescription().getIdentifier() + "/glsl" + (context.getGLVersion().getGLSLFull() >= 150 ? 330 : 120) + "/" + name;
+        final String shaderPath = "shaders/glsl" + (context.getGLVersion().getGLSLFull() >= 150 ? 330 : 120) + "/" + name;
 
         final InputStream verStream = Minecraft.getMinecraft().getResourceManager().getResource(new ResourceLocation(Game.MOD_ID.toLowerCase(), shaderPath + ".vert")).getInputStream();
         final InputStream fragStream = Minecraft.getMinecraft().getResourceManager().getResource(new ResourceLocation(Game.MOD_ID.toLowerCase(), shaderPath + ".frag")).getInputStream();
@@ -174,7 +174,7 @@ public abstract class Renderer {
 
         Font font = fonts.get(fontName);
         if (font == null) {
-            final InputStream fontStream = Minecraft.getMinecraft().getResourceManager().getResource(new ResourceLocation(Game.MOD_ID.toLowerCase(), "fonts/" + addon.getDescription().getIdentifier() + "/" + fontName + ".ttf")).getInputStream();
+            final InputStream fontStream = Minecraft.getMinecraft().getResourceManager().getResource(new ResourceLocation(Game.MOD_ID.toLowerCase(), "fonts/" + fontName + ".ttf")).getInputStream();
             font = Font.createFont(Font.TRUETYPE_FONT, fontStream);
         }
         return font;
