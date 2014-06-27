@@ -21,7 +21,7 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package org.obsidianbox.mod;
+package org.obsidianbox.obsidian;
 
 import java.util.Iterator;
 import java.util.LinkedHashSet;
@@ -32,8 +32,8 @@ import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiScreen;
-import org.obsidianbox.api.gui.Form;
-import org.obsidianbox.api.gui.Stack;
+import org.obsidianbox.magma.gui.Form;
+import org.obsidianbox.magma.gui.Stack;
 
 @SideOnly(Side.CLIENT)
 public class ClientStack implements Stack {

@@ -21,7 +21,7 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package org.obsidianbox.mod.renderer;
+package org.obsidianbox.obsidian.renderer;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -39,10 +39,10 @@ import net.minecraft.util.ResourceLocation;
 import org.lwjgl.opengl.GL11;
 import org.lwjgl.opengl.GL20;
 import org.lwjgl.opengl.GL30;
-import org.obsidianbox.api.Game;
-import org.obsidianbox.api.addon.Addon;
-import org.obsidianbox.api.renderer.Renderer;
-import org.obsidianbox.mod.addon.CommonAddonManager;
+import org.obsidianbox.magma.Game;
+import org.obsidianbox.magma.addon.Addon;
+import org.obsidianbox.magma.renderer.Renderer;
+import org.obsidianbox.obsidian.addon.CommonAddonManager;
 
 import org.spout.renderer.api.Camera;
 import org.spout.renderer.api.Material;

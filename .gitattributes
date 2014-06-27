@@ -7,9 +7,10 @@
 *.db binary
 *.icns binary
 *.ico binary
-*.key binary
+*.jar binary
 *.jks binary
 *.jpg binary
+*.key binary
 *.png binary
 *.ttf binary
 *.wav binary

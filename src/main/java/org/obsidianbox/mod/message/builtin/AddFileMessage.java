@@ -21,7 +21,7 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package org.obsidianbox.mod.message.builtin;
+package org.obsidianbox.obsidian.message.builtin;
 
 import java.io.IOException;
 import java.nio.file.Path;
@@ -36,11 +36,11 @@ import io.netty.buffer.ByteBuf;
 import net.minecraft.client.Minecraft;
 import net.minecraft.entity.player.EntityPlayer;
 import org.apache.commons.lang3.SerializationUtils;
-import org.obsidianbox.api.addon.InvalidAddonException;
-import org.obsidianbox.api.addon.InvalidDescriptionException;
-import org.obsidianbox.api.message.Message;
-import org.obsidianbox.mod.resource.CommonFileSystem;
-import org.obsidianbox.api.Game;
+import org.obsidianbox.magma.addon.InvalidAddonException;
+import org.obsidianbox.magma.addon.InvalidDescriptionException;
+import org.obsidianbox.magma.message.Message;
+import org.obsidianbox.obsidian.resource.CommonFileSystem;
+import org.obsidianbox.magma.Game;
 
 public class AddFileMessage implements Message {
     private String addonIdentifier;

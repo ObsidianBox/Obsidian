@@ -21,7 +21,7 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package org.obsidianbox.mod.resource;
+package org.obsidianbox.obsidian.resource;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -31,8 +31,8 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.Set;
 
-import org.obsidianbox.api.addon.Addon;
-import org.obsidianbox.api.resource.UnreachableURLException;
+import org.obsidianbox.magma.addon.Addon;
+import org.obsidianbox.magma.resource.UnreachableURLException;
 
 public class ClientFileSystem extends CommonFileSystem {
     public static final Path ASSETS_PATH = Paths.get(BASE_PATH.toString(), "assets");

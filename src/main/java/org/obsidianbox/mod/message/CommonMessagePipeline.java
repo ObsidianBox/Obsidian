@@ -21,7 +21,7 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package org.obsidianbox.mod.message;
+package org.obsidianbox.obsidian.message;
 
 import java.lang.reflect.Field;
 import java.util.EnumMap;
@@ -41,10 +41,10 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.network.INetHandler;
 import net.minecraft.network.NetHandlerPlayServer;
-import org.obsidianbox.api.message.Message;
-import org.obsidianbox.api.message.MessagePipeline;
-import org.obsidianbox.api.Game;
-import org.obsidianbox.api.addon.Addon;
+import org.obsidianbox.magma.message.Message;
+import org.obsidianbox.magma.message.MessagePipeline;
+import org.obsidianbox.magma.Game;
+import org.obsidianbox.magma.addon.Addon;
 
 @ChannelHandler.Sharable
 public class CommonMessagePipeline extends FMLIndexedMessageToMessageCodec<Message> implements MessagePipeline {

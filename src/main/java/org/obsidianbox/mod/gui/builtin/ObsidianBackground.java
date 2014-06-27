@@ -21,7 +21,7 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package org.obsidianbox.mod.gui.builtin;
+package org.obsidianbox.obsidian.gui.builtin;
 
 import java.util.Calendar;
 import java.util.Random;
@@ -29,8 +29,8 @@ import java.util.Random;
 import net.minecraft.client.gui.Gui;
 import net.minecraft.util.ResourceLocation;
 import org.lwjgl.opengl.*;
-import org.obsidianbox.api.Game;
-import org.obsidianbox.api.util.RenderUtil;
+import org.obsidianbox.magma.Game;
+import org.obsidianbox.magma.util.RenderUtil;
 
 public class ObsidianBackground extends Gui {
     private static final Random RANDOM = new Random();

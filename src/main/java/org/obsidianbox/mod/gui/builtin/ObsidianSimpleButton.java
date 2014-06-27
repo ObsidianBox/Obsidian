@@ -21,13 +21,13 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package org.obsidianbox.mod.gui.builtin;
+package org.obsidianbox.obsidian.gui.builtin;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.FontRenderer;
 import net.minecraft.client.gui.GuiButton;
 import org.lwjgl.opengl.GL11;
-import org.obsidianbox.api.util.RenderUtil;
+import org.obsidianbox.magma.util.RenderUtil;
 
 public class ObsidianSimpleButton extends GuiButton {
     private int fontColor, normalFontColor, hoverFontColor, disabledFontColor, buttonWidth, buttonHeight;

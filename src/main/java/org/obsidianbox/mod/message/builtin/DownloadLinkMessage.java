@@ -21,7 +21,7 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package org.obsidianbox.mod.message.builtin;
+package org.obsidianbox.obsidian.message.builtin;
 
 import java.io.IOException;
 import java.net.MalformedURLException;
@@ -31,8 +31,8 @@ import cpw.mods.fml.common.network.ByteBufUtils;
 import io.netty.buffer.ByteBuf;
 import net.minecraft.entity.player.EntityPlayer;
 import org.apache.commons.lang3.SerializationUtils;
-import org.obsidianbox.api.Game;
-import org.obsidianbox.api.message.Message;
+import org.obsidianbox.magma.Game;
+import org.obsidianbox.magma.message.Message;
 
 public class DownloadLinkMessage implements Message {
     private String addonIdentifier;

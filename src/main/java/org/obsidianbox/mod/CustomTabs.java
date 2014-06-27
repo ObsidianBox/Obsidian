@@ -21,15 +21,15 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package org.obsidianbox.mod;
+package org.obsidianbox.obsidian;
 
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
-import org.obsidianbox.api.lang.Languages;
-import org.obsidianbox.mod.addon.InternalAddon;
-import org.obsidianbox.api.Game;
-import org.obsidianbox.api.addon.Addon;
-import org.obsidianbox.mod.addon.CommonAddonManager;
+import org.obsidianbox.magma.lang.Languages;
+import org.obsidianbox.obsidian.addon.InternalAddon;
+import org.obsidianbox.magma.Game;
+import org.obsidianbox.magma.addon.Addon;
+import org.obsidianbox.obsidian.addon.CommonAddonManager;
 
 public class CustomTabs extends CreativeTabs {
     private final InternalAddon addon;

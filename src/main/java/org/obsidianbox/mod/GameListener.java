@@ -21,7 +21,7 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package org.obsidianbox.mod;
+package org.obsidianbox.obsidian;
 
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 import cpw.mods.fml.common.gameevent.PlayerEvent;
@@ -34,11 +34,11 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.client.event.GuiOpenEvent;
 import net.minecraftforge.client.event.RenderGameOverlayEvent;
 import org.lwjgl.opengl.GL11;
-import org.obsidianbox.api.util.RenderUtil;
-import org.obsidianbox.mod.gui.builtin.ObsidianMainMenu;
-import org.obsidianbox.api.Game;
-import org.obsidianbox.mod.addon.CommonAddonManager;
-import org.obsidianbox.mod.message.builtin.AddonListMessage;
+import org.obsidianbox.magma.util.RenderUtil;
+import org.obsidianbox.obsidian.gui.builtin.ObsidianMainMenu;
+import org.obsidianbox.magma.Game;
+import org.obsidianbox.obsidian.addon.CommonAddonManager;
+import org.obsidianbox.obsidian.message.builtin.AddonListMessage;
 
 public class GameListener {
     private final Game game;

@@ -21,7 +21,7 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package org.obsidianbox.mod.util;
+package org.obsidianbox.obsidian.util;
 
 import java.util.List;
 import java.lang.reflect.Modifier;

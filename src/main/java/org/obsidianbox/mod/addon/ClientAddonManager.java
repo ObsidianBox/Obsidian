@@ -21,7 +21,7 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package org.obsidianbox.mod.addon;
+package org.obsidianbox.obsidian.addon;
 
 import java.nio.file.Path;
 import java.util.List;
@@ -30,12 +30,12 @@ import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.resources.IResourcePack;
-import org.obsidianbox.api.addon.InvalidAddonException;
-import org.obsidianbox.api.addon.InvalidDescriptionException;
-import org.obsidianbox.mod.resource.AddonResourcePack;
-import org.obsidianbox.api.Game;
-import org.obsidianbox.api.addon.Addon;
-import org.obsidianbox.mod.util.ReflectionEntry;
+import org.obsidianbox.magma.addon.InvalidAddonException;
+import org.obsidianbox.magma.addon.InvalidDescriptionException;
+import org.obsidianbox.obsidian.resource.AddonResourcePack;
+import org.obsidianbox.magma.Game;
+import org.obsidianbox.magma.addon.Addon;
+import org.obsidianbox.obsidian.util.ReflectionEntry;
 
 //TODO Override parent methods and show GUI acceptance screens
 @SideOnly(Side.CLIENT)

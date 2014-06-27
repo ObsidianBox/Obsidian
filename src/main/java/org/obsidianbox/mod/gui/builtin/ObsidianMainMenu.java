@@ -21,7 +21,7 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package org.obsidianbox.mod.gui.builtin;
+package org.obsidianbox.obsidian.gui.builtin;
 
 import cpw.mods.fml.client.GuiModList;
 import net.minecraft.client.gui.GuiButton;
@@ -32,8 +32,8 @@ import net.minecraft.client.gui.GuiSelectWorld;
 import net.minecraft.client.resources.I18n;
 import net.minecraft.util.ResourceLocation;
 import org.lwjgl.opengl.GL11;
-import org.obsidianbox.api.Game;
-import org.obsidianbox.api.util.RenderUtil;
+import org.obsidianbox.magma.Game;
+import org.obsidianbox.magma.util.RenderUtil;
 
 public class ObsidianMainMenu extends GuiScreen {
     private static ResourceLocation gameLogo = new ResourceLocation(Game.MOD_ID.toLowerCase(), "textures/gui/" + Game.MOD_ID.toLowerCase() + ".png");

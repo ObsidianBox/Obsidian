@@ -21,7 +21,7 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package org.obsidianbox.mod.util.map;
+package org.obsidianbox.obsidian.util.map;
 
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
@@ -42,9 +42,9 @@ import java.util.Set;
 import java.util.concurrent.ConcurrentHashMap;
 
 import org.apache.commons.lang3.builder.HashCodeBuilder;
-import org.obsidianbox.api.util.map.DefaultedKey;
-import org.obsidianbox.api.util.map.SerializableMap;
-import org.obsidianbox.mod.addon.AddonClassLoader;
+import org.obsidianbox.magma.util.map.DefaultedKey;
+import org.obsidianbox.magma.util.map.SerializableMap;
+import org.obsidianbox.obsidian.addon.AddonClassLoader;
 
 /**
  * Manages a string keyed, serializable object hashmap that can be serialized easily to an array of bytes and deserialized from an array of bytes, intended for persistence and network transfers.

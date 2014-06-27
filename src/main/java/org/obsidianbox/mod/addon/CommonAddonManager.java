@@ -21,7 +21,7 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package org.obsidianbox.mod.addon;
+package org.obsidianbox.obsidian.addon;
 
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -45,15 +45,15 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import net.minecraftforge.common.MinecraftForge;
 import org.apache.logging.log4j.LogManager;
-import org.obsidianbox.api.Game;
-import org.obsidianbox.api.util.FileUtils;
-import org.obsidianbox.mod.resource.CommonFileSystem;
-import org.obsidianbox.mod.util.map.SerializableHashMap;
-import org.obsidianbox.api.addon.Addon;
-import org.obsidianbox.api.addon.AddonDescription;
-import org.obsidianbox.api.addon.AddonManager;
-import org.obsidianbox.api.addon.InvalidAddonException;
-import org.obsidianbox.api.addon.InvalidDescriptionException;
+import org.obsidianbox.magma.Game;
+import org.obsidianbox.magma.util.FileUtils;
+import org.obsidianbox.obsidian.resource.CommonFileSystem;
+import org.obsidianbox.obsidian.util.map.SerializableHashMap;
+import org.obsidianbox.magma.addon.Addon;
+import org.obsidianbox.magma.addon.AddonDescription;
+import org.obsidianbox.magma.addon.AddonManager;
+import org.obsidianbox.magma.addon.InvalidAddonException;
+import org.obsidianbox.magma.addon.InvalidDescriptionException;
 
 public class CommonAddonManager implements AddonManager {
     private static final String ADDON_JSON = "addon.info";

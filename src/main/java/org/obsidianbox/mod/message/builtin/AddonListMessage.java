@@ -21,7 +21,7 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package org.obsidianbox.mod.message.builtin;
+package org.obsidianbox.obsidian.message.builtin;
 
 import java.io.Serializable;
 import java.util.Map;
@@ -29,12 +29,12 @@ import java.util.Map;
 import io.netty.buffer.ByteBuf;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
-import org.obsidianbox.api.addon.Addon;
-import org.obsidianbox.api.message.Message;
-import org.obsidianbox.mod.resource.CommonFileSystem;
-import org.obsidianbox.mod.util.map.SerializableHashMap;
-import org.obsidianbox.api.Game;
-import org.obsidianbox.mod.addon.CommonAddonManager;
+import org.obsidianbox.magma.addon.Addon;
+import org.obsidianbox.magma.message.Message;
+import org.obsidianbox.obsidian.resource.CommonFileSystem;
+import org.obsidianbox.obsidian.util.map.SerializableHashMap;
+import org.obsidianbox.magma.Game;
+import org.obsidianbox.obsidian.addon.CommonAddonManager;
 
 /**
  * Message used to communicate the addon list between client and server.

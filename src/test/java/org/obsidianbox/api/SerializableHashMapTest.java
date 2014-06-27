@@ -21,10 +21,10 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package org.obsidianbox.api;
+package org.obsidianbox.magma;
 
 import org.junit.Test;
-import org.obsidianbox.mod.util.map.SerializableHashMap;
+import org.obsidianbox.obsidian.util.map.SerializableHashMap;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;

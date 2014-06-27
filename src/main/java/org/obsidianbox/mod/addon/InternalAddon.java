@@ -21,7 +21,7 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package org.obsidianbox.mod.addon;
+package org.obsidianbox.obsidian.addon;
 
 import java.lang.reflect.Field;
 
@@ -30,23 +30,23 @@ import net.minecraft.item.ItemArmor;
 import net.minecraftforge.common.util.EnumHelper;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.obsidianbox.api.Game;
-import org.obsidianbox.api.addon.Addon;
-import org.obsidianbox.api.addon.AddonDescription;
-import org.obsidianbox.api.addon.AddonMode;
-import org.obsidianbox.api.block.CustomMovingBlock;
-import org.obsidianbox.api.block.CustomSlab;
-import org.obsidianbox.api.message.MessagePipeline;
-import org.obsidianbox.api.item.CustomArmor;
-import org.obsidianbox.api.item.CustomAxe;
-import org.obsidianbox.api.item.CustomFood;
-import org.obsidianbox.api.item.CustomItem;
-import org.obsidianbox.api.item.CustomPickaxe;
-import org.obsidianbox.api.item.CustomSpade;
-import org.obsidianbox.api.item.CustomSword;
-import org.obsidianbox.mod.message.builtin.AddFileMessage;
-import org.obsidianbox.mod.message.builtin.AddonListMessage;
-import org.obsidianbox.mod.message.builtin.DownloadLinkMessage;
+import org.obsidianbox.magma.Game;
+import org.obsidianbox.magma.addon.Addon;
+import org.obsidianbox.magma.addon.AddonDescription;
+import org.obsidianbox.magma.addon.AddonMode;
+import org.obsidianbox.magma.block.CustomMovingBlock;
+import org.obsidianbox.magma.block.CustomSlab;
+import org.obsidianbox.magma.message.MessagePipeline;
+import org.obsidianbox.magma.item.CustomArmor;
+import org.obsidianbox.magma.item.CustomAxe;
+import org.obsidianbox.magma.item.CustomFood;
+import org.obsidianbox.magma.item.CustomItem;
+import org.obsidianbox.magma.item.CustomPickaxe;
+import org.obsidianbox.magma.item.CustomSpade;
+import org.obsidianbox.magma.item.CustomSword;
+import org.obsidianbox.obsidian.message.builtin.AddFileMessage;
+import org.obsidianbox.obsidian.message.builtin.AddonListMessage;
+import org.obsidianbox.obsidian.message.builtin.DownloadLinkMessage;
 
 public final class InternalAddon extends Addon {
     private CustomItem obsidianEmblem;
@@ -62,7 +62,7 @@ public final class InternalAddon extends Addon {
             e.printStackTrace();
         }
 
-        final AddonDescription description = new AddonDescription("internal", Game.MOD_ID, "1.0-SNAPSHOT", AddonMode.BOTH, "org.obsidianbox.mod.addon.InternalAddon");
+        final AddonDescription description = new AddonDescription("internal", Game.MOD_ID, "1.0-SNAPSHOT", AddonMode.BOTH, "org.obsidianbox.obsidian.addon.InternalAddon");
 
         final Field descriptionField;
         try {

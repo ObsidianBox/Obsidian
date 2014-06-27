@@ -21,7 +21,7 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package org.obsidianbox.mod.addon;
+package org.obsidianbox.obsidian.addon;
 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
@@ -34,9 +34,9 @@ import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
 
-import org.obsidianbox.api.Game;
-import org.obsidianbox.api.addon.Addon;
-import org.obsidianbox.api.addon.AddonManager;
+import org.obsidianbox.magma.Game;
+import org.obsidianbox.magma.addon.Addon;
+import org.obsidianbox.magma.addon.AddonManager;
 
 public final class AddonClassLoader extends URLClassLoader {
     private static final Map<String, Addon> CLASSES_IN_ADDONS = new HashMap<>();

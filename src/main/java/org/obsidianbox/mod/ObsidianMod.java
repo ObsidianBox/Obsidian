@@ -21,7 +21,7 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package org.obsidianbox.mod;
+package org.obsidianbox.obsidian;
 
 import java.nio.ByteBuffer;
 
@@ -38,17 +38,17 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.common.MinecraftForge;
 import org.lwjgl.opengl.Display;
-import org.obsidianbox.api.addon.AddonManager;
-import org.obsidianbox.api.resource.FileSystem;
-import org.obsidianbox.api.util.RenderUtil;
-import org.obsidianbox.mod.lang.CommonLanguageRegistry;
-import org.obsidianbox.mod.message.CommonMessagePipeline;
-import org.obsidianbox.mod.renderer.GuiRenderer;
-import org.obsidianbox.mod.resource.ClientFileSystem;
-import org.obsidianbox.mod.resource.CommonFileSystem;
-import org.obsidianbox.api.Game;
-import org.obsidianbox.mod.addon.ClientAddonManager;
-import org.obsidianbox.mod.addon.CommonAddonManager;
+import org.obsidianbox.magma.addon.AddonManager;
+import org.obsidianbox.magma.resource.FileSystem;
+import org.obsidianbox.magma.util.RenderUtil;
+import org.obsidianbox.obsidian.lang.CommonLanguageRegistry;
+import org.obsidianbox.obsidian.message.CommonMessagePipeline;
+import org.obsidianbox.obsidian.renderer.GuiRenderer;
+import org.obsidianbox.obsidian.resource.ClientFileSystem;
+import org.obsidianbox.obsidian.resource.CommonFileSystem;
+import org.obsidianbox.magma.Game;
+import org.obsidianbox.obsidian.addon.ClientAddonManager;
+import org.obsidianbox.obsidian.addon.CommonAddonManager;
 
 import org.spout.renderer.lwjgl.gl32.GL32Context;
 

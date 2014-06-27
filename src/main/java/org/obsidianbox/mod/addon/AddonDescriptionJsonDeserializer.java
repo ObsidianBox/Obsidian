@@ -21,7 +21,7 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package org.obsidianbox.mod.addon;
+package org.obsidianbox.obsidian.addon;
 
 import java.lang.reflect.Type;
 
@@ -30,8 +30,8 @@ import com.google.gson.JsonDeserializer;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParseException;
-import org.obsidianbox.api.addon.AddonDescription;
-import org.obsidianbox.api.addon.AddonMode;
+import org.obsidianbox.magma.addon.AddonDescription;
+import org.obsidianbox.magma.addon.AddonMode;
 
 public class AddonDescriptionJsonDeserializer implements JsonDeserializer<AddonDescription> {
     @Override

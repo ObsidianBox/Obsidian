@@ -21,7 +21,7 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package org.obsidianbox.mod.resource;
+package org.obsidianbox.obsidian.resource;
 
 import java.awt.image.BufferedImage;
 import java.io.IOException;
@@ -33,8 +33,8 @@ import net.minecraft.client.resources.IResourcePack;
 import net.minecraft.client.resources.data.IMetadataSection;
 import net.minecraft.client.resources.data.IMetadataSerializer;
 import net.minecraft.util.ResourceLocation;
-import org.obsidianbox.api.Game;
-import org.obsidianbox.api.addon.Addon;
+import org.obsidianbox.magma.Game;
+import org.obsidianbox.magma.addon.Addon;
 
 public class AddonResourcePack implements IResourcePack {
     private final Addon addon;

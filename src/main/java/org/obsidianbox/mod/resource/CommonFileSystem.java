@@ -21,7 +21,7 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package org.obsidianbox.mod.resource;
+package org.obsidianbox.obsidian.resource;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -39,10 +39,10 @@ import java.util.Map;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
-import org.obsidianbox.api.resource.FileSystem;
-import org.obsidianbox.api.Game;
-import org.obsidianbox.api.addon.Addon;
-import org.obsidianbox.api.resource.UnreachableURLException;
+import org.obsidianbox.magma.resource.FileSystem;
+import org.obsidianbox.magma.Game;
+import org.obsidianbox.magma.addon.Addon;
+import org.obsidianbox.magma.resource.UnreachableURLException;
 
 public class CommonFileSystem implements FileSystem {
     public static final Path BASE_PATH = Paths.get(".");

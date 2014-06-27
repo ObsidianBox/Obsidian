@@ -21,16 +21,16 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package org.obsidianbox.mod.lang;
+package org.obsidianbox.obsidian.lang;
 
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 
-import org.obsidianbox.api.Game;
-import org.obsidianbox.api.addon.Addon;
-import org.obsidianbox.api.lang.LanguageRegistry;
-import org.obsidianbox.api.lang.Languages;
+import org.obsidianbox.magma.Game;
+import org.obsidianbox.magma.addon.Addon;
+import org.obsidianbox.magma.lang.LanguageRegistry;
+import org.obsidianbox.magma.lang.Languages;
 
 public class CommonLanguageRegistry implements LanguageRegistry {
     private final Game game;

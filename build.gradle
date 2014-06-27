@@ -11,7 +11,7 @@ apply plugin: 'shadow'
 apply plugin: 'signing'
 
 // Basic project information
-group = 'org.obsidianbox'
+group = 'org.obsidianbox.obsidian'
 archivesBaseName = 'obsidian'
 version = '1.0.0-SNAPSHOT'
 
@@ -82,6 +82,7 @@ repositories {
 
 dependencies {
     compile 'junit:junit:4.11'
+    compile 'org.obsidianbox.magma:magma:1.0.0-SNAPSHOT'
     compile 'org.spout:caustic-lwjgl:1.0.0-SNAPSHOT'
     testCompile 'junit:junit:4.11'
 }
@@ -89,6 +90,7 @@ dependencies {
 // Include dependencies in the final JAR
 shadow {
     artifactAttached = false
+    include 'org/obsidianbox/**'
     include 'com/flowpowered/**'
     include 'org/spout/**'
 }

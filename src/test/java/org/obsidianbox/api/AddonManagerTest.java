@@ -21,11 +21,11 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package org.obsidianbox.api;
+package org.obsidianbox.magma;
 
 import cpw.mods.fml.relauncher.Side;
 import org.junit.Test;
-import org.obsidianbox.mod.addon.CommonAddonManager;
+import org.obsidianbox.obsidian.addon.CommonAddonManager;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotEquals;
