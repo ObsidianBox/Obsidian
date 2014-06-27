@@ -23,24 +23,22 @@
  */
 package org.obsidianbox.api.block;
 
-import java.util.List;
-
+import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
-import net.minecraft.block.Block;
 import net.minecraft.block.BlockSlab;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.client.resources.I18n;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
-import net.minecraft.item.ItemSlab;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.IIcon;
 import net.minecraft.world.World;
-import org.obsidianbox.api.Game;
 import org.obsidianbox.api.Materials;
 import org.obsidianbox.api.addon.Addon;
 import org.obsidianbox.api.lang.Languages;
+
+import java.util.List;
 
 public class CustomSlab extends BlockSlab {
     private final Addon addon;
@@ -62,20 +60,22 @@ public class CustomSlab extends BlockSlab {
         addon.getGame().getLanguages().put(addon, Languages.ENGLISH_AMERICAN, "tile.block." + identifier + ".name", displayName);
 
         if (!isDoubleSlab) {
+
             if (showInCreativeTab) {
                 setCreativeTab(addon.getGame().getTabs());
             }
 
             singleSlab = this;
             doubleSlab = new CustomSlab(addon, identifier, displayName, showInCreativeTab, true);
+
             register();
         }
     }
 
     private void register() {
         // Register our slabs, doubleSlab will be registered with '_double' appended at the end.
-        //GameRegistry.registerBlock(singleSlab, CustomSlabItem.class, addon.getDescription().getIdentifier() + "_" +  identifier);
-        //GameRegistry.registerBlock(doubleSlab, CustomSlabItem.class, addon.getDescription().getIdentifier() + "_" +  identifier + "_double");
+        GameRegistry.registerBlock(singleSlab, CustomSlabItem.class, addon.getDescription().getIdentifier() + "_" + identifier);
+        GameRegistry.registerBlock(doubleSlab, CustomSlabItem.class, addon.getDescription().getIdentifier() + "_" +  identifier + "_double");
     }
 
     @Override
@@ -134,13 +134,5 @@ public class CustomSlab extends BlockSlab {
 
     public final String getIdentifier() {
         return identifier;
-    }
-
-    private class CustomSlabItem extends ItemSlab {
-        public CustomSlabItem(Block block) {
-            super(block, singleSlab, doubleSlab, false);
-            this.setMaxDamage(0);
-            this.setHasSubtypes(false);
-        }
     }
 }
