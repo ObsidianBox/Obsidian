@@ -35,6 +35,7 @@ import org.obsidianbox.api.addon.Addon;
 import org.obsidianbox.api.addon.AddonDescription;
 import org.obsidianbox.api.addon.AddonMode;
 import org.obsidianbox.api.block.CustomMovingBlock;
+import org.obsidianbox.api.block.CustomSlab;
 import org.obsidianbox.api.message.MessagePipeline;
 import org.obsidianbox.api.item.CustomArmor;
 import org.obsidianbox.api.item.CustomAxe;
@@ -125,6 +126,8 @@ public final class InternalAddon extends Addon {
         new CustomArmor(this, "custom_chestplate", "Custom Chestplate", customArmorMaterial, CustomArmor.ArmorType.TORSO, true);
         new CustomArmor(this, "custom_leggings", "Custom Leggings", customArmorMaterial, CustomArmor.ArmorType.LEGS, true);
         new CustomArmor(this, "custom_boots", "Custom Boots", customArmorMaterial, CustomArmor.ArmorType.FEET, true);
+
+        new CustomSlab(this, "custom_slab","Custom Slab", true);
 
         obsidianEmblem = new CustomItem(this, "obsidian_emblem", "Obsidian Emblem", true);
     }
