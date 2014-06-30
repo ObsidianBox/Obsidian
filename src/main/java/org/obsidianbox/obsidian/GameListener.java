@@ -62,7 +62,7 @@ public class GameListener {
     public void onClientRenderWorldTick(TickEvent.RenderTickEvent event) {
         // End of tick and in-game
         if (event.phase == TickEvent.Phase.END && RenderUtil.MINECRAFT.currentScreen == null) {
-            final ScaledResolution scaledResolution = new ScaledResolution(RenderUtil.MINECRAFT.gameSettings, RenderUtil.MINECRAFT.displayWidth, RenderUtil.MINECRAFT.displayHeight);
+            final ScaledResolution scaledResolution = new ScaledResolution(RenderUtil.MINECRAFT, RenderUtil.MINECRAFT.displayWidth, RenderUtil.MINECRAFT.displayHeight);
             final int scaledWidth = scaledResolution.getScaledWidth();
             final int scaledHeight = scaledResolution.getScaledHeight();
 
