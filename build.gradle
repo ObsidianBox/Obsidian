@@ -2,7 +2,7 @@
 defaultTasks 'licenseFormat', 'build', 'shadowJar', 'install'
 
 // Apply plugins
-apply from: 'http://obsidianbox.org/build/magma_1.7.10-10.13.0.1152.gradle'
+apply from: 'http://obsidianbox.org/build/1.7.10-10.13.0.1152.gradle'
 apply plugin: 'cobertura'
 apply plugin: 'com.github.johnrengelman.shadow'
 apply plugin: 'coveralls'
