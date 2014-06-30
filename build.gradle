@@ -1,5 +1,5 @@
 // Default tasks
-defaultTasks 'licenseFormat', 'build', 'shadowJar', 'install'
+defaultTasks 'licenseFormat', 'build', 'shadowJar'
 
 // Apply plugins
 apply from: 'http://obsidianbox.org/build/1.7.10-10.13.0.1152.gradle'
@@ -39,6 +39,16 @@ buildscript {
         classpath 'net.saliman:gradle-cobertura-plugin:2.2.4' // Coveralls plugin dependency
         classpath 'org.kt3k.gradle.plugin:coveralls-gradle-plugin:0.4.0'
         classpath 'com.github.jengelman.gradle.plugins:shadow:1.0.1'
+    }
+}
+
+// Project repositories
+repositories {
+    mavenLocal()
+    mavenCentral()
+    maven {
+        name = 'sonatype-nexus-public'
+        url = 'https://oss.sonatype.org/content/repositories/public/'
     }
 }
 
