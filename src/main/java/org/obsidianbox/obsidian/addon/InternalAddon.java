@@ -37,6 +37,7 @@ import org.obsidianbox.magma.addon.AddonDescription;
 import org.obsidianbox.magma.addon.AddonMode;
 import org.obsidianbox.magma.block.CustomBlock;
 import org.obsidianbox.magma.block.CustomBlockFluid;
+import org.obsidianbox.magma.block.CustomFlower;
 import org.obsidianbox.magma.block.CustomFluid;
 import org.obsidianbox.magma.block.CustomMovingBlock;
 import org.obsidianbox.magma.block.CustomPressurePlate;
@@ -140,6 +141,8 @@ public final class InternalAddon extends Addon {
         new CustomBlockFluid(this, "custom_fluid", "Custom Fluid", true);
 
         new CustomPressurePlate(this, "custom_plate", "Custom Plate", true, BlockPressurePlate.Sensitivity.everything);
+
+        new CustomFlower(this, "custom_flower", "Custom Flower", true);
 
         obsidianEmblem = new CustomItem(this, "obsidian_emblem", "Obsidian Emblem", true);
     }
