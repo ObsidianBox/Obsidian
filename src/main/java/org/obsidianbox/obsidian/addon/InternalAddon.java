@@ -25,6 +25,7 @@ package org.obsidianbox.obsidian.addon;
 
 import java.lang.reflect.Field;
 
+import net.minecraft.block.BlockPressurePlate;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemArmor;
 import net.minecraftforge.common.util.EnumHelper;
@@ -35,7 +36,10 @@ import org.obsidianbox.magma.addon.Addon;
 import org.obsidianbox.magma.addon.AddonDescription;
 import org.obsidianbox.magma.addon.AddonMode;
 import org.obsidianbox.magma.block.CustomBlock;
+import org.obsidianbox.magma.block.CustomBlockFluid;
+import org.obsidianbox.magma.block.CustomFluid;
 import org.obsidianbox.magma.block.CustomMovingBlock;
+import org.obsidianbox.magma.block.CustomPressurePlate;
 import org.obsidianbox.magma.block.CustomSlab;
 import org.obsidianbox.magma.block.RenderingType;
 import org.obsidianbox.magma.message.MessagePipeline;
@@ -132,6 +136,10 @@ public final class InternalAddon extends Addon {
         new CustomSlab(this, "custom_slab","Custom Slab", true);
 
         new CustomBlock(this, "custom_renderer", "Custom Renderer", true, RenderingType.OBJ);
+
+        new CustomBlockFluid(this, "custom_fluid", "Custom Fluid", true);
+
+        new CustomPressurePlate(this, "custom_plate", "Custom Plate", true, BlockPressurePlate.Sensitivity.everything);
 
         obsidianEmblem = new CustomItem(this, "obsidian_emblem", "Obsidian Emblem", true);
     }
