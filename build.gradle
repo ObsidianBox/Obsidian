@@ -11,7 +11,7 @@ apply plugin: 'maven'
 apply plugin: 'signing'
 
 // Basic project information
-group = 'org.obsidianbox.obsidian'
+group = 'org.obsidianbox'
 archivesBaseName = 'obsidian'
 version = '1.0.0-SNAPSHOT'
 
