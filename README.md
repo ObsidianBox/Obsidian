@@ -9,13 +9,13 @@ Obsidian is a framework that extends Forge to deliver server-side content on dem
 
 ## Prerequisites
 * [Java] 7
-* [Gradle] 1.12+
+* [Gradle] 1.12
 
 ## Cloning
 If you are using Git, use this command to clone the project: `git clone git@github.com:ObsidianBox/Obsidian.git`
 
 ## Setup
-__Note:__ If you do not have [Gradle] installed you can use the gradlew files included with the project in place of 'gradle' in the following command(s). If you are using Git Bash, Unix or OS X then use './gradlew'. If you are using Windows then use 'gradlew.bat'.
+__Note:__ If you do not have [Gradle] installed then use ./gradlew for Unix systems or Git Bash and gradlew.bat for Windows systems in place of any 'gradle' command.
 
 __For [Eclipse]__  
   1. Run `gradle cleanCache --refresh-dependencies` to pull in dependencies cleanly.  
@@ -47,6 +47,7 @@ __For [IntelliJ]__
   2. Click the green + button and select **Application**.  
   3. Set the name as `Obsidian (Client)` and apply the information for Client below.
   4. Repeat step 2 and set the name as `Obsidian (Server)` and apply the information for Server below.
+  4a. When launching the server for the first time, it will shutdown by itself. You will need to modify the server.properties to set onlinemode=false and modify the eula.txt to set eula=true (this means you agree to the Mojang EULA, if you do not wish to do this then you cannot run the server).
 
 __Client__
 
@@ -54,7 +55,7 @@ __Client__
 |:-----------------:|:--------------------------------------------------------------------------------------------------------|
 |    Main class     | net.minecraft.launchwrapper.Launch                                                                      |
 |    VM options     | -Xmx1G -Xms512M -Dfml.ignoreInvalidMinecraftCertificates=true -Djava.library.path="../../build/natives" |
-|   Program args    | --version 1.7.2 --tweakClass cpw.mods.fml.common.launcher.FMLTweaker --accessToken Obsidian             |
+|   Program args    | --version 1.7.10 --tweakClass cpw.mods.fml.common.launcher.FMLTweaker --username=Obsidian --accessToken FML --userProperties={}                                                                                                       |
 | Working directory | ~/run/client (Included in project)                                                                      |
 | Module classpath  | Obsidian (IntelliJ Only)                                                                                |
 
@@ -69,13 +70,15 @@ __Server__
 
 
 ## Building
-__Note:__ If you do not have [Gradle] installed you can use the gradlew files included with the project in place of 'gradle' in the following command(s). If you are using Git Bash, Unix or OS X then use './gradlew'. If you are using Windows then use 'gradlew.bat'.
+__Note:__ If you do not have [Gradle] installed then use ./gradlew for Unix systems or Git Bash and gradlew.bat for Windows systems in place of any 'gradle' command.
 
-In order to build Obsidian you simply need to run the `gradle` command. You can find the compiled JAR files in `~/build/distribution` but in most cases you'll only need 'obsidian-x.x.x-SNAPSHOT.jar'.
+In order to build Obsidian you simply need to run the `gradle` command. You can find the compiled JAR files in `~/build/distributions` but in most cases you'll only need 'obsidian-x.x.x-SNAPSHOT.jar'.
+
+If you are making changes with Magma then build Magma first, then Obsidian.
 
 ## Contributing
 Are you a talented programmer looking to contribute some code? We'd love the help!
-* Open a pull request with your changes, following our [guidelines and coding standards](https://github.com/ObsidianBox/Obsidian/wiki/Contributing).
+* Open a pull request with your changes, following our [guidelines and coding standards](http://wiki.obsidianbox.org/Contributing).
 * Please follow the above guidelines and requirements for your pull request(s) to be accepted.
 * For help setting up the project, keep reading!  
 
@@ -105,7 +108,7 @@ __Help! Things are not working!__
 [Gradle]: http://www.gradle.org/
 [Homepage]: http://obsidianbox.org/
 [IntelliJ]: http://www.jetbrains.com/idea/
-[Issues]: http://obsidianbox.org/issues/
+[Issues]: http://obsidianbox.org/community/support/
 [Java]: http://java.oracle.com/
 [Source]: https://github.com/ObsidianBox/Obsidian/
 [MIT License]: http://www.tldrlegal.com/license/mit-license/
