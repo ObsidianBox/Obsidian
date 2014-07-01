@@ -67,6 +67,10 @@ shadow {
     include 'org/spout/**'
 }
 
+// Obfuscate based on the shaded jars content
+reobf { reobf(file('build/distributions/' + archivesBaseName + '-' + version + '.jar')) {spec ->  spec.classpath = configurations.compile } }
+reobf.dependsOn shadowJar
+
 // Filter, process, and include resources
 processResources {
     inputs.property "version", version
