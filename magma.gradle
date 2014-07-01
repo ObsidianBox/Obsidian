@@ -1,0 +1,51 @@
+allprojects {
+    // Configuration settings
+    configurations.all {
+        resolutionStrategy.cacheChangingModulesFor 0, 'seconds' // Always check for new snapshots
+    }
+}
+
+// Apply ForgeGradle's plugin directly
+apply plugin: net.minecraftforge.gradle.user.patch.ForgeUserPlugin
+
+// ForgeGradle repositories/dependencies
+buildscript {
+    repositories {
+        mavenCentral()
+        maven {
+            name = "sonatype"
+            url = "https://oss.sonatype.org/content/repositories/snapshots/"
+        }
+        maven {
+            name = "forge"
+            url = "http://files.minecraftforge.net/maven"
+        }
+    }
+    dependencies {
+        classpath 'net.minecraftforge.gradle:ForgeGradle:1.2-SNAPSHOT'
+    }
+}
+
+// Minimum version of Java required
+sourceCompatibility = '1.7'
+targetCompatibility = '1.7'
+
+// MinecraftForge version
+minecraft {
+    version = "1.7.10-10.13.0.1152"
+}
+
+// Project repositories
+repositories {
+    mavenLocal()
+    mavenCentral()
+    maven {
+        name = 'sonatype-nexus-public'
+        url = 'https://oss.sonatype.org/content/repositories/public/'
+    }
+}
+
+// Project dependencies
+dependencies {
+    compile 'org.obsidianbox.magma:magma:1.0.0-SNAPSHOT'
+}

@@ -2,12 +2,12 @@
 defaultTasks 'licenseFormat', 'build', 'shadowJar'
 
 // Apply plugins
-apply from: 'http://obsidianbox.org/build/1.7.10-10.13.0.1152.gradle'
+apply from: 'magma.gradle'
 apply plugin: 'cobertura'
+apply plugin: 'com.github.johnrengelman.shadow'
 apply plugin: 'coveralls'
 apply plugin: 'license'
 apply plugin: 'maven'
-apply plugin: 'shadow'
 apply plugin: 'signing'
 
 // Basic project information
@@ -32,13 +32,18 @@ ext.commit = project.hasProperty("commit") ? commit : 'unknown'
 // Gradle repositories and dependencies
 buildscript {
     repositories {
+        mavenCentral()
+        maven {
+            name = 'sonatype-nexus-public'
+            url = 'https://oss.sonatype.org/content/repositories/public/'
+        }
         jcenter()
     }
     dependencies {
-        classpath 'nl.javadude.gradle.plugins:license-gradle-plugin:0.7.0'
+        classpath 'nl.javadude.gradle.plugins:license-gradle-plugin:0.9.0'
         classpath 'net.saliman:gradle-cobertura-plugin:2.2.4' // Coveralls plugin dependency
-        classpath 'org.kt3k.gradle.plugin:coveralls-gradle-plugin:0.4.0'
-        classpath 'com.github.jengelman.gradle.plugins:shadow:0.8'
+        classpath 'org.kt3k.gradle.plugin:coveralls-gradle-plugin:0.5.0'
+        classpath 'com.github.jengelman.gradle.plugins:shadow:1.0.1'
     }
 }
 
@@ -60,11 +65,16 @@ dependencies {
 }
 
 // Include dependencies in the final JAR
-shadow {
-    artifactAttached = false
-    include 'org/obsidianbox/**'
-    include 'com/flowpowered/**'
-    include 'org/spout/**'
+shadowJar {
+    classifier = ''
+    destinationDir = file("build/distributions")
+    dependencies {
+        include(dependency('com.flowpowered:flow-math:0.1.0-SNAPSHOT'))
+        include(dependency('org.obsidianbox.magma:magma:1.0.0-SNAPSHOT'))
+        include(dependency('org.spout:caustic-api:1.0.0-SNAPSHOT'))
+        include(dependency('org.spout:caustic-lwjgl:1.0.0-SNAPSHOT'))
+    }
+    exclude 'shaders/'
 }
 
 // Obfuscate based on the shaded jars content
