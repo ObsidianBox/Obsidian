@@ -47,5 +47,5 @@ repositories {
 
 // Project dependencies
 dependencies {
-    compile 'org.obsidianbox.magma:magma:1.0.0-SNAPSHOT'
+    compile 'org.obsidianbox:magma:1.0.0-SNAPSHOT'
 }
