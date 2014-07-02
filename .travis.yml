@@ -3,14 +3,13 @@ language: java
 jdk: oraclejdk7
 
 # Compile and package JAR and set build properties
-install:
-  - ./gradlew setupCIWorkspace
-  - ./gradlew build -PbuildNumber=$TRAVIS_BUILD_NUMBER -PciSystem=travis -Pcommit=${TRAVIS_COMMIT:0:7}
+install: gradle setupCIWorkspace
+script: gradle build -PbuildNumber=$TRAVIS_BUILD_NUMBER -PciSystem=travis -Pcommit=${TRAVIS_COMMIT:0:7}
 
 # Perform steps after compilation/test success
 after_success:
   # Generate Cobertura report for Coveralls.io
-  - "./gradlew cobertura coveralls -PserviceJobId=$TRAVIS_JOB_ID"
+  - "gradle cobertura coveralls -PserviceJobId=$TRAVIS_JOB_ID"
   # Check if commit s not a pull request, if git repo is official, and if branch is master. If checks pass, add libs and deploy artifacts to Maven repository.
   - "[[ $TRAVIS_PULL_REQUEST == false ]] && [[ $TRAVIS_REPO_SLUG == ObsidianBox/Obsidian ]] && [[ $TRAVIS_BRANCH == master ]] && ./gradlew uploadArchives"
 
