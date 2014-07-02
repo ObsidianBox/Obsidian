@@ -11,7 +11,7 @@ after_success:
   # Generate Cobertura report for Coveralls.io
   - "gradle cobertura coveralls -PserviceJobId=$TRAVIS_JOB_ID"
   # Check if commit s not a pull request, if git repo is official, and if branch is master. If checks pass, add libs and deploy artifacts to Maven repository.
-  - "[[ $TRAVIS_PULL_REQUEST == false ]] && [[ $TRAVIS_REPO_SLUG == ObsidianBox/Obsidian ]] && [[ $TRAVIS_BRANCH == master ]] && ./gradlew uploadArchives"
+  - "[[ $TRAVIS_PULL_REQUEST == false ]] && [[ $TRAVIS_REPO_SLUG == ObsidianBox/Obsidian ]] && [[ $TRAVIS_BRANCH == master ]] && gradle uploadArchives"
 
 # Notification services
 notifications:
