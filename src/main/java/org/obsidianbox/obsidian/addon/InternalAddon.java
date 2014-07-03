@@ -144,9 +144,9 @@ public final class InternalAddon extends Addon {
         new CustomSlab(this, "custom_slab","Custom Slab", customSlabMaterial, true);
 
         final Material customBlockMaterial = new Material(MapColor.clayColor);
-        final Block block = new CustomBlock(this, "custom_renderer", "Custom Renderer", customBlockMaterial, true);
+        final CustomBlock block = new CustomBlock(this, "custom_renderer", "Custom Renderer", customBlockMaterial, true);
         if (getGame().getSide().isClient()) {
-            setupBlockRenderer(block, new ResourceLocation(getDescription().getIdentifier(), "models/blocks/custom_renderer.obj"));
+            setupBlockRenderer(block);
         }
 
         final Material customFluidMaterial = new Material(MapColor.diamondColor);
@@ -161,13 +161,11 @@ public final class InternalAddon extends Addon {
     }
 
     @SideOnly(Side.CLIENT)
-    private void setupBlockRenderer(Block block, ResourceLocation modelLocation) {
-        if (block instanceof CustomBlock) {
-            final SimpleBlockOBJRenderer renderer = new SimpleBlockOBJRenderer(this, RenderingRegistry.getNextAvailableRenderId(), modelLocation);
-            RenderingRegistry.registerBlockHandler(renderer);
-            ((CustomBlock) block).setRenderType(renderer.getRenderId());
-        }
+    private void setupBlockRenderer(CustomBlock block) {
+        final SimpleBlockOBJRenderer renderer = new SimpleBlockOBJRenderer(this, RenderingRegistry.getNextAvailableRenderId(), block);
+        RenderingRegistry.registerBlockHandler(renderer);
     }
+
     public CustomItem getTabIcon() {
         return obsidianEmblem;
     }
