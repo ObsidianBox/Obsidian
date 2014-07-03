@@ -25,7 +25,6 @@ package org.obsidianbox.obsidian;
 
 import java.nio.ByteBuffer;
 
-import cpw.mods.fml.client.registry.RenderingRegistry;
 import cpw.mods.fml.common.FMLCommonHandler;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;
@@ -40,8 +39,6 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.common.MinecraftForge;
 import org.lwjgl.opengl.Display;
 import org.obsidianbox.magma.addon.AddonManager;
-import org.obsidianbox.magma.block.renderer.BlockRenderer;
-import org.obsidianbox.magma.block.renderer.SimpleOBJRenderer;
 import org.obsidianbox.magma.resource.FileSystem;
 import org.obsidianbox.magma.util.RenderUtil;
 import org.obsidianbox.obsidian.lang.CommonLanguageRegistry;
@@ -115,9 +112,6 @@ public class ObsidianMod {
             if (windowIcon != null && taskbarIcon != null) {
                 Display.setIcon(new ByteBuffer[] {windowIcon, taskbarIcon});
             }
-            BlockRenderer renderer = new SimpleOBJRenderer();
-            RenderingRegistry.registerBlockHandler(renderer);
-            game.setBlockRenderer(renderer);
         } else {
             // Load addons
             addonManager.loadAddons(CommonFileSystem.ADDONS_PATH);

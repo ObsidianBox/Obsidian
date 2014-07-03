@@ -57,7 +57,7 @@ import org.obsidianbox.magma.addon.InvalidDescriptionException;
 
 public class CommonAddonManager implements AddonManager {
     private static final String ADDON_JSON = "addon.info";
-    private final Game game;
+    protected final Game game;
     private final Map<Addon, AddonClassLoader> loaders = new HashMap<>();
     private final Set<Addon> addons = new HashSet<>();
     private final SerializableHashMap addonMD5s = new SerializableHashMap();

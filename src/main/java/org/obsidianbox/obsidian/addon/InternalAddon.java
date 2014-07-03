@@ -25,9 +25,16 @@ package org.obsidianbox.obsidian.addon;
 
 import java.lang.reflect.Field;
 
+import cpw.mods.fml.client.registry.RenderingRegistry;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
+import net.minecraft.block.Block;
 import net.minecraft.block.BlockPressurePlate;
+import net.minecraft.block.material.MapColor;
+import net.minecraft.block.material.Material;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemArmor;
+import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.common.util.EnumHelper;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -36,17 +43,15 @@ import org.obsidianbox.magma.addon.Addon;
 import org.obsidianbox.magma.addon.AddonDescription;
 import org.obsidianbox.magma.addon.AddonMode;
 import org.obsidianbox.magma.block.CustomBlock;
-import org.obsidianbox.magma.block.CustomBlockFluid;
+import org.obsidianbox.magma.block.fluid.CustomBlockFluid;
 import org.obsidianbox.magma.block.CustomFlower;
-import org.obsidianbox.magma.block.CustomFluid;
 import org.obsidianbox.magma.block.CustomMovingBlock;
 import org.obsidianbox.magma.block.CustomPressurePlate;
 import org.obsidianbox.magma.block.CustomSlab;
-import org.obsidianbox.magma.block.RenderingType;
+import org.obsidianbox.magma.block.renderer.SimpleBlockOBJRenderer;
 import org.obsidianbox.magma.message.MessagePipeline;
 import org.obsidianbox.magma.item.CustomArmor;
 import org.obsidianbox.magma.item.CustomAxe;
-import org.obsidianbox.magma.item.CustomFood;
 import org.obsidianbox.magma.item.CustomItem;
 import org.obsidianbox.magma.item.CustomPickaxe;
 import org.obsidianbox.magma.item.CustomSpade;
@@ -102,26 +107,27 @@ public final class InternalAddon extends Addon {
         pipeline.register(this, DownloadLinkMessage.class);
 
         /* Remove before release */
-        new CustomMovingBlock(this, "0b", "0b (Black)", true);
-        new CustomMovingBlock(this, "0w", "0w (White)", true);
-        new CustomMovingBlock(this, "1b", "1b (Black)", true);
-        new CustomMovingBlock(this, "1w", "1w (White)", true);
-        new CustomMovingBlock(this, "2b", "2b (Black)", true);
-        new CustomMovingBlock(this, "2w", "2w (White)", true);
-        new CustomMovingBlock(this, "3b", "3b (Black)", true);
-        new CustomMovingBlock(this, "3w", "3w (White)", true);
-        new CustomMovingBlock(this, "4b", "4b (Black)", true);
-        new CustomMovingBlock(this, "4w", "4w (White)", true);
-        new CustomMovingBlock(this, "5b", "5b (Black)", true);
-        new CustomMovingBlock(this, "5w", "5w (White)", true);
-        new CustomMovingBlock(this, "6b", "6b (Black)", true);
-        new CustomMovingBlock(this, "6w", "6w (White)", true);
-        new CustomMovingBlock(this, "7b", "7b (Black)", true);
-        new CustomMovingBlock(this, "7w", "7w (White)", true);
-        new CustomMovingBlock(this, "8b", "8b (Black)", true);
-        new CustomMovingBlock(this, "8w", "8w (White)", true);
-        new CustomMovingBlock(this, "9b", "9b (Black)", true);
-        new CustomMovingBlock(this, "9w", "9w (White)", true);
+        final Material customMovingMaterial = new Material(MapColor.brownColor);
+        new CustomMovingBlock(this, "0b", "0b (Black)", customMovingMaterial, true);
+        new CustomMovingBlock(this, "0w", "0w (White)", customMovingMaterial, true);
+        new CustomMovingBlock(this, "1b", "1b (Black)", customMovingMaterial, true);
+        new CustomMovingBlock(this, "1w", "1w (White)", customMovingMaterial, true);
+        new CustomMovingBlock(this, "2b", "2b (Black)", customMovingMaterial, true);
+        new CustomMovingBlock(this, "2w", "2w (White)", customMovingMaterial, true);
+        new CustomMovingBlock(this, "3b", "3b (Black)", customMovingMaterial, true);
+        new CustomMovingBlock(this, "3w", "3w (White)", customMovingMaterial, true);
+        new CustomMovingBlock(this, "4b", "4b (Black)", customMovingMaterial, true);
+        new CustomMovingBlock(this, "4w", "4w (White)", customMovingMaterial, true);
+        new CustomMovingBlock(this, "5b", "5b (Black)", customMovingMaterial, true);
+        new CustomMovingBlock(this, "5w", "5w (White)", customMovingMaterial, true);
+        new CustomMovingBlock(this, "6b", "6b (Black)", customMovingMaterial, true);
+        new CustomMovingBlock(this, "6w", "6w (White)", customMovingMaterial, true);
+        new CustomMovingBlock(this, "7b", "7b (Black)", customMovingMaterial, true);
+        new CustomMovingBlock(this, "7w", "7w (White)", customMovingMaterial, true);
+        new CustomMovingBlock(this, "8b", "8b (Black)", customMovingMaterial, true);
+        new CustomMovingBlock(this, "8w", "8w (White)", customMovingMaterial, true);
+        new CustomMovingBlock(this, "9b", "9b (Black)", customMovingMaterial, true);
+        new CustomMovingBlock(this, "9w", "9w (White)", customMovingMaterial, true);
 
         new CustomSword(this, "custom_blade", "Custom Blade", Item.ToolMaterial.EMERALD, true);
         new CustomAxe(this, "custom_axe", "Custom Axe", Item.ToolMaterial.EMERALD, true);
@@ -134,19 +140,35 @@ public final class InternalAddon extends Addon {
         new CustomArmor(this, "custom_leggings", "Custom Leggings", customArmorMaterial, CustomArmor.ArmorType.LEGS, true);
         new CustomArmor(this, "custom_boots", "Custom Boots", customArmorMaterial, CustomArmor.ArmorType.FEET, true);
 
-        new CustomSlab(this, "custom_slab","Custom Slab", true);
+        final Material customSlabMaterial = new Material(MapColor.blueColor);
+        new CustomSlab(this, "custom_slab","Custom Slab", customSlabMaterial, true);
 
-        new CustomBlock(this, "custom_renderer", "Custom Renderer", true, RenderingType.OBJ);
+        final Material customBlockMaterial = new Material(MapColor.clayColor);
+        final Block block = new CustomBlock(this, "custom_renderer", "Custom Renderer", customBlockMaterial, true);
+        if (getGame().getSide().isClient()) {
+            setupBlockRenderer(block);
+        }
 
-        new CustomBlockFluid(this, "custom_fluid", "Custom Fluid", true);
+        final Material customFluidMaterial = new Material(MapColor.diamondColor);
+        new CustomBlockFluid(this, "custom_fluid", "Custom Fluid", customFluidMaterial, true);
 
-        new CustomPressurePlate(this, "custom_plate", "Custom Plate", true, BlockPressurePlate.Sensitivity.everything);
+        final Material customPressurePlate = new Material(MapColor.adobeColor);
+        new CustomPressurePlate(this, "custom_plate", "Custom Plate", customPressurePlate, true, BlockPressurePlate.Sensitivity.everything);
 
         new CustomFlower(this, "custom_flower", "Custom Flower", true);
 
         obsidianEmblem = new CustomItem(this, "obsidian_emblem", "Obsidian Emblem", true);
     }
 
+    @SideOnly(Side.CLIENT)
+    private void setupBlockRenderer(Block block) {
+        if (block instanceof CustomBlock) {
+            final ResourceLocation modelLocation = new ResourceLocation(getDescription().getIdentifier(), "models/blocks/custom_renderer.obj");
+            final SimpleBlockOBJRenderer renderer = new SimpleBlockOBJRenderer(this, RenderingRegistry.getNextAvailableRenderId(), modelLocation);
+            RenderingRegistry.registerBlockHandler(renderer);
+            ((CustomBlock) block).setRenderType(renderer.getRenderId());
+        }
+    }
     public CustomItem getTabIcon() {
         return obsidianEmblem;
     }

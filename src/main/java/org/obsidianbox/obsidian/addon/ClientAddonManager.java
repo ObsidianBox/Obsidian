@@ -49,6 +49,7 @@ public final class ClientAddonManager extends CommonAddonManager {
         final Addon addon =  super.loadAddon(path);
         final AddonResourcePack pack = new AddonResourcePack(addon);
         injectAddonPack(pack);
+        game.getLogger().info("Injected ResourcePack for addon [" + addon.getDescription().getIdentifier() + "]");
         return addon;
     }
 
