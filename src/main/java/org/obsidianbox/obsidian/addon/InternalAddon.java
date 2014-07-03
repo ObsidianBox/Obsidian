@@ -146,7 +146,7 @@ public final class InternalAddon extends Addon {
         final Material customBlockMaterial = new Material(MapColor.clayColor);
         final Block block = new CustomBlock(this, "custom_renderer", "Custom Renderer", customBlockMaterial, true);
         if (getGame().getSide().isClient()) {
-            setupBlockRenderer(block);
+            setupBlockRenderer(block, new ResourceLocation(getDescription().getIdentifier(), "models/blocks/custom_renderer.obj"));
         }
 
         final Material customFluidMaterial = new Material(MapColor.diamondColor);
@@ -161,9 +161,8 @@ public final class InternalAddon extends Addon {
     }
 
     @SideOnly(Side.CLIENT)
-    private void setupBlockRenderer(Block block) {
+    private void setupBlockRenderer(Block block, ResourceLocation modelLocation) {
         if (block instanceof CustomBlock) {
-            final ResourceLocation modelLocation = new ResourceLocation(getDescription().getIdentifier(), "models/blocks/custom_renderer.obj");
             final SimpleBlockOBJRenderer renderer = new SimpleBlockOBJRenderer(this, RenderingRegistry.getNextAvailableRenderId(), modelLocation);
             RenderingRegistry.registerBlockHandler(renderer);
             ((CustomBlock) block).setRenderType(renderer.getRenderId());
