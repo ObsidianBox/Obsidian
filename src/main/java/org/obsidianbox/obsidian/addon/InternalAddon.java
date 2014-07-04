@@ -43,6 +43,7 @@ import org.obsidianbox.magma.addon.Addon;
 import org.obsidianbox.magma.addon.AddonDescription;
 import org.obsidianbox.magma.addon.AddonMode;
 import org.obsidianbox.magma.block.CustomBlock;
+import org.obsidianbox.magma.block.CustomTrapDoor;
 import org.obsidianbox.magma.block.fluid.CustomBlockFluid;
 import org.obsidianbox.magma.block.CustomFlower;
 import org.obsidianbox.magma.block.CustomMovingBlock;
@@ -156,6 +157,9 @@ public final class InternalAddon extends Addon {
         new CustomPressurePlate(this, "custom_plate", "Custom Plate", customPressurePlate, true, BlockPressurePlate.Sensitivity.everything);
 
         new CustomFlower(this, "custom_flower", "Custom Flower", true);
+
+        final Material customTrapDoor = new Material(MapColor.woodColor);
+        new CustomTrapDoor(this, "custom_trapdoor", "Custom Trapdoor", customTrapDoor, true);
 
         obsidianEmblem = new CustomItem(this, "obsidian_emblem", "Obsidian Emblem", true);
     }
