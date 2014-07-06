@@ -34,9 +34,7 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.Collection;
 import java.util.Collections;
-import java.util.HashMap;
 import java.util.HashSet;
-import java.util.Map;
 import java.util.Set;
 import java.util.jar.JarEntry;
 import java.util.jar.JarFile;
@@ -58,7 +56,6 @@ import org.obsidianbox.magma.addon.InvalidDescriptionException;
 public class CommonAddonManager implements AddonManager {
     private static final String ADDON_JSON = "addon.info";
     protected final Game game;
-    private final Map<Addon, AddonClassLoader> loaders = new HashMap<>();
     private final Set<Addon> addons = new HashSet<>();
     private final SerializableHashMap addonMD5s = new SerializableHashMap();
     private final Addon internal;
@@ -94,13 +91,12 @@ public class CommonAddonManager implements AddonManager {
         final AddonDescription description = create(path);
 
         if (!description.isValidMode(game.getSide())) {
-            throw new InvalidAddonException("Attempted to load " + path + " but this can only be done on the " + game.getSide().name().toLowerCase() + ".");
+            throw new InvalidAddonException("Attempted to load path [" + path + "] but this can only be done on the " + game.getSide().name().toLowerCase() + ".");
         }
 
         final Path dataPath = Paths.get(path.getParent().toString(), description.getIdentifier());
         try {
-            final AddonClassLoader loader = new AddonClassLoader(game, (URLClassLoader) MinecraftForge.class.getClassLoader(), this);
-            loader.addURL(path.toUri().toURL());
+            final AddonClassLoader loader = new AddonClassLoader((URLClassLoader) MinecraftForge.class.getClassLoader(), path.toUri().toURL());
             final Class<?> addonMain = Class.forName(description.getMain(), true, loader);
             final Class<? extends Addon> addonClass = addonMain.asSubclass(Addon.class);
             final Constructor<? extends Addon> constructor = addonClass.getConstructor();
@@ -126,10 +122,7 @@ public class CommonAddonManager implements AddonManager {
             dataPathField.set(addon, dataPath);
             dataPathField.setAccessible(false);
 
-            loader.setAddon(addon);
-            loaders.put(addon, loader);
             addons.add(addon);
-
             addonMD5s.put(description.getIdentifier(), FileUtils.getMD5Checksum(path));
 
             if (game.getSide().isServer()) {
@@ -253,10 +246,6 @@ public class CommonAddonManager implements AddonManager {
         return description;
     }
 
-    public boolean isOfficialAddon(String identifier) {
-        return "internal".equalsIgnoreCase(identifier);
-    }
-
     public void initialize() {
         for (Addon addon : addons) {
             initialize(addon);
@@ -275,24 +264,12 @@ public class CommonAddonManager implements AddonManager {
         }
     }
 
-    public Addon getInternalAddon() {
-        return internal;
+    public boolean isOfficialAddon(String identifier) {
+        return "internal".equalsIgnoreCase(identifier);
     }
 
-    public Class<?> getClassByName(final String name, final AddonClassLoader commonLoader) {
-        for (Map.Entry<Addon, AddonClassLoader> entry : loaders.entrySet()) {
-            if (entry.getValue() == commonLoader) {
-                continue;
-            }
-            try {
-                Class<?> clazz = entry.getValue().findClass(name, false);
-                if (clazz != null) {
-                    return clazz;
-                }
-            } catch (ClassNotFoundException ignored) {
-            }
-        }
-        return null;
+    public Addon getInternalAddon() {
+        return internal;
     }
 
     public SerializableHashMap getAddonMD5s() {

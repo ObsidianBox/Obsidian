@@ -27,36 +27,30 @@ import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.net.URL;
 import java.net.URLClassLoader;
-import java.util.Collection;
-import java.util.Collections;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
 
-import org.obsidianbox.magma.Game;
-import org.obsidianbox.magma.addon.Addon;
-import org.obsidianbox.magma.addon.AddonManager;
-
 public final class AddonClassLoader extends URLClassLoader {
-    private static final Map<String, Addon> CLASSES_IN_ADDONS = new HashMap<>();
-    private static final Set<AddonClassLoader> LOADERS = new HashSet<>();
-    private final Map<String, Class<?>> namesByClasses = new HashMap<>();
-    private final Game game;
+    private static Set<AddonClassLoader> LOADERS = new HashSet<>();
+    private static final Map<String, Class<?>> NAMES_BY_CLASSES = new HashMap<>();
+    private static Method addURLMethod;
     private final URLClassLoader forge;
-    private final AddonManager manager;
-    private Addon addon;
 
-    public AddonClassLoader(Game game, URLClassLoader forge, AddonManager manager) {
-        super(new URL[0], forge);
-        this.game = game;
-        this.forge = forge;
-        this.manager = manager;
-        LOADERS.add(this);
+    static {
+        try {
+            addURLMethod = URLClassLoader.class.getMethod("addURL", URL.class);
+        } catch (NoSuchMethodException e) {
+            e.printStackTrace();
+        }
     }
 
-    public static Addon getAddon(String className) {
-        return CLASSES_IN_ADDONS.get(className);
+    public AddonClassLoader(URLClassLoader forge, URL addonMainClassURL) {
+        super(new URL[0], forge);
+        this.forge = forge;
+        addURL(addonMainClassURL);
+        LOADERS.add(this);
     }
 
     public static Class<?> findAddonClass(String name) throws ClassNotFoundException {
@@ -66,19 +60,18 @@ public final class AddonClassLoader extends URLClassLoader {
                 return clazz;
             }
         }
-        throw new ClassNotFoundException("Class " + name + " was not found");
+        throw new ClassNotFoundException("Class [" + name + "] was not found");
     }
 
     @Override
     protected void addURL(URL url) {
         super.addURL(url);
 
-        Method method;
         try {
-            method = URLClassLoader.class.getDeclaredMethod("addURL", new Class[] {URL.class});
-            method.setAccessible(true);
-            method.invoke(forge, url);
-        } catch (NoSuchMethodException | InvocationTargetException | IllegalAccessException e) {
+            addURLMethod.setAccessible(true);
+            addURLMethod.invoke(forge, url);
+            addURLMethod.setAccessible(false);
+        } catch (InvocationTargetException | IllegalAccessException e) {
             e.printStackTrace();
         }
     }
@@ -89,49 +82,35 @@ public final class AddonClassLoader extends URLClassLoader {
     }
 
     protected Class<?> findClass(String name, boolean checkOtherAddons) throws ClassNotFoundException {
-        game.getLogger().info("Attempting to find class " + name);
-        Class<?> result = namesByClasses.get(name);
-
-        if (result == null) {
-            game.getLogger().info("Class " + name + " has never been looked up before");
-            try {
-                result = super.findClass(name);
-            } catch (ClassNotFoundException ignored) {
-            }
-
+        Class<?> result;
+        boolean isForgeClass = false;
+        try {
+            result = super.findClass(name);
+            isForgeClass = true;
+        } catch (ClassNotFoundException ignored) {
+            result = NAMES_BY_CLASSES.get(name);
             if (result == null && checkOtherAddons) {
-                game.getLogger().info("Class " + name + " is not in the forge classloader");
-                result = ((CommonAddonManager) manager).getClassByName(name, this);
-            }
-
-            if (result != null) {
-                game.getLogger().info("Class " + name + " found!. Result: " + result + ", addon: " + addon);
-                namesByClasses.put(name, result);
-                CLASSES_IN_ADDONS.put(name, addon);
-            } else {
-                throw new ClassNotFoundException(name);
+                result = findClassByName(name);
             }
         }
-
-        return result;
-    }
-
-    protected void setAddon(Addon addon) {
-        if (this.addon != null) {
-            throw new IllegalStateException("Attempt to set the addon of an addon class loader twice!");
+        if (result != null && !isForgeClass) {
+            NAMES_BY_CLASSES.put(name, result);
+            return result;
+        } else {
+            throw new ClassNotFoundException(name);
         }
-        if (addon == null) {
-            throw new IllegalStateException("Attempt to set addon of classloader to null!");
+    }
+
+    public Class<?> findClassByName(final String name) throws ClassNotFoundException {
+        for (AddonClassLoader loader : LOADERS) {
+            if (loader == this) {
+                continue;
+            }
+            Class<?> clazz = loader.findClass(name, false);
+            if (clazz != null) {
+                return clazz;
+            }
         }
-        this.addon = addon;
-        CLASSES_IN_ADDONS.put(addon.getClass().getName(), addon);
-    }
-
-    public Set<String> getClassNames() {
-        return Collections.unmodifiableSet(namesByClasses.keySet());
-    }
-
-    public Collection<Class<?>> getClasses() {
-        return Collections.unmodifiableCollection(namesByClasses.values());
+        return null;
     }
 }

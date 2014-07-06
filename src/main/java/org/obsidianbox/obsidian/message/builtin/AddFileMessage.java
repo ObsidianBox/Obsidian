@@ -76,21 +76,4 @@ public class AddFileMessage implements Message {
         ByteBufUtils.writeUTF8String(buf, name);
         buf.writeBytes(data);
     }
-
-    @Override
-    public void handle(Game game, EntityPlayer player) {
-        // Re-create the file
-        final Path addonJarPath = Paths.get(CommonFileSystem.ADDONS_PATH.toString(), addonIdentifier);
-        try {
-            Files.write(addonJarPath, data, StandardOpenOption.CREATE_NEW);
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
-        try {
-            game.getAddonManager().loadAddon(addonJarPath);
-        } catch (InvalidAddonException | InvalidDescriptionException e) {
-            e.printStackTrace();
-        }
-        Minecraft.getMinecraft().scheduleResourcesRefresh();
-    }
 }

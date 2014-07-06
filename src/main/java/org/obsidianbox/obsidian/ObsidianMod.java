@@ -41,13 +41,13 @@ import org.lwjgl.opengl.Display;
 import org.obsidianbox.magma.addon.AddonManager;
 import org.obsidianbox.magma.resource.FileSystem;
 import org.obsidianbox.magma.util.RenderUtil;
-import org.obsidianbox.obsidian.lang.CommonLanguageRegistry;
+import org.obsidianbox.obsidian.lang.CommonLanguageManager;
 import org.obsidianbox.obsidian.message.CommonMessagePipeline;
 import org.obsidianbox.obsidian.renderer.GuiRenderer;
 import org.obsidianbox.obsidian.resource.ClientFileSystem;
 import org.obsidianbox.obsidian.resource.CommonFileSystem;
 import org.obsidianbox.magma.Game;
-import org.obsidianbox.obsidian.addon.ClientAddonManager;
+import org.obsidianbox.obsidian.addon.client.ClientAddonManager;
 import org.obsidianbox.obsidian.addon.CommonAddonManager;
 
 import org.spout.renderer.lwjgl.gl32.GL32Context;
@@ -84,7 +84,7 @@ public class ObsidianMod {
             default:
                 return;
         }
-        final CommonLanguageRegistry languages = new CommonLanguageRegistry(game);
+        final CommonLanguageManager languages = new CommonLanguageManager(game);
         final CommonMessagePipeline messagePipeline = new CommonMessagePipeline(game);
         game.setAddonManager(addonManager);
         game.setFileSystem(fileSystem);
@@ -165,7 +165,7 @@ public class ObsidianMod {
             addonManager.initialize();
 
             // Register our language map into Forge
-            ((CommonLanguageRegistry) game.getLanguages()).register();
+            ((CommonLanguageManager) game.getLanguages()).register();
 
             // Refresh for addon additions in initialize
             Minecraft.getMinecraft().refreshResources();

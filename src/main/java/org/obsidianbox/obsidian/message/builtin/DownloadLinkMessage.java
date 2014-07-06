@@ -52,26 +52,21 @@ public class DownloadLinkMessage implements Message {
     @Override
     public void decode(Game game, ByteBuf buf) throws Exception {
         if (game.getSide().isServer()) {
-            throw new IOException("Server is not allowed to receive links!");
+            throw new IOException("Server is not allowed to receive download links!");
         }
         addonIdentifier = ByteBufUtils.readUTF8String(buf);
         byte[] data = new byte[buf.readableBytes()];
         buf.readBytes(data);
-        url = (URL) SerializationUtils.deserialize(data);
+        url = SerializationUtils.deserialize(data);
     }
 
     @Override
     public void encode(Game game, ByteBuf buf) throws Exception {
         if (game.getSide().isClient()) {
-            throw new IOException("Client is not allowed to send links!");
+            throw new IOException("Client is not allowed to send download links!");
         }
         final byte[] data = SerializationUtils.serialize(url);
         ByteBufUtils.writeUTF8String(buf, addonIdentifier);
         buf.writeBytes(data);
-    }
-
-    @Override
-    public void handle(Game game, EntityPlayer player) {
-
     }
 }

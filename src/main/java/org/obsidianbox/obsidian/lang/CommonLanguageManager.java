@@ -29,17 +29,17 @@ import java.util.Map;
 
 import org.obsidianbox.magma.Game;
 import org.obsidianbox.magma.addon.Addon;
-import org.obsidianbox.magma.lang.LanguageRegistry;
+import org.obsidianbox.magma.lang.LanguageManager;
 import org.obsidianbox.magma.lang.Languages;
 
-public class CommonLanguageRegistry implements LanguageRegistry {
+public class CommonLanguageManager implements LanguageManager {
     private final Game game;
     /*
      * Addon -> Language -> Key (example: itemGroup.fruit.apple) -> value (example: "Apple")
      */
     private final Map<Addon, Map<Languages, Map<String, String>>> addonMap = new HashMap<>();
 
-    public CommonLanguageRegistry(Game game) {
+    public CommonLanguageManager(Game game) {
         this.game = game;
     }
 

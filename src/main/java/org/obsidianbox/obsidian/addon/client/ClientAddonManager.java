@@ -21,7 +21,7 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package org.obsidianbox.obsidian.addon;
+package org.obsidianbox.obsidian.addon.client;
 
 import java.nio.file.Path;
 import java.util.List;
@@ -32,6 +32,7 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.client.resources.IResourcePack;
 import org.obsidianbox.magma.addon.InvalidAddonException;
 import org.obsidianbox.magma.addon.InvalidDescriptionException;
+import org.obsidianbox.obsidian.addon.CommonAddonManager;
 import org.obsidianbox.obsidian.resource.AddonResourcePack;
 import org.obsidianbox.magma.Game;
 import org.obsidianbox.magma.addon.Addon;

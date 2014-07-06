@@ -46,7 +46,7 @@ public class AddonDescriptionJsonDeserializer implements JsonDeserializer<AddonD
         try {
             mode = AddonMode.valueOf(modeRaw);
         } catch (Exception e) {
-            throw new JsonParseException(modeRaw + " is not a valid addon mode [CLIENT, SERVER, BOTH]");
+            throw new JsonParseException(modeRaw + " is not a valid addon mode [SERVER, BOTH]");
         }
         return new AddonDescription(identifier, name, version, mode, main);
     }

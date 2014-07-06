@@ -24,7 +24,6 @@
 package org.obsidianbox.obsidian.resource;
 
 import java.awt.image.BufferedImage;
-import java.io.IOException;
 import java.io.InputStream;
 import java.util.HashSet;
 import java.util.Set;
@@ -33,7 +32,6 @@ import net.minecraft.client.resources.IResourcePack;
 import net.minecraft.client.resources.data.IMetadataSection;
 import net.minecraft.client.resources.data.IMetadataSerializer;
 import net.minecraft.util.ResourceLocation;
-import org.obsidianbox.magma.Game;
 import org.obsidianbox.magma.addon.Addon;
 
 public class AddonResourcePack implements IResourcePack {
@@ -61,7 +59,7 @@ public class AddonResourcePack implements IResourcePack {
     }
 
     @Override
-    public Set getResourceDomains() {
+    public Set<?> getResourceDomains() {
         return domains;
     }
 

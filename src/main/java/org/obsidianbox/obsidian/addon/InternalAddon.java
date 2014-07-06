@@ -103,11 +103,21 @@ public final class InternalAddon extends Addon {
     @Override
     public void onInitialize() {
         final MessagePipeline pipeline = getGame().getPipeline();
-        pipeline.register(this, AddFileMessage.class);
-        pipeline.register(this, AddonListMessage.class);
-        pipeline.register(this, DownloadLinkMessage.class);
+        pipeline.register(this, AddFileMessage.class, null);
+        pipeline.register(this, AddonListMessage.class, AddonListMessage.class);
+        pipeline.register(this, DownloadLinkMessage.class, null);
 
-        /* Remove before release */
+        obsidianEmblem = new CustomItem(this, "obsidian_emblem", "Obsidian Emblem", true);
+
+        // TODO Remove before release, simply for testing Magma
+        testAlphaContent();
+    }
+
+    public CustomItem getTabIcon() {
+        return obsidianEmblem;
+    }
+
+    private void testAlphaContent() {
         final Material customMovingMaterial = new Material(MapColor.brownColor);
         new CustomMovingBlock(this, "0b", "0b (Black)", customMovingMaterial, true);
         new CustomMovingBlock(this, "0w", "0w (White)", customMovingMaterial, true);
@@ -160,17 +170,11 @@ public final class InternalAddon extends Addon {
 
         final Material customTrapDoor = new Material(MapColor.woodColor);
         new CustomTrapDoor(this, "custom_trapdoor", "Custom Trapdoor", customTrapDoor, true);
-
-        obsidianEmblem = new CustomItem(this, "obsidian_emblem", "Obsidian Emblem", true);
     }
 
     @SideOnly(Side.CLIENT)
     private void setupBlockRenderer(CustomBlock block) {
         final SimpleBlockOBJRenderer renderer = new SimpleBlockOBJRenderer(this, RenderingRegistry.getNextAvailableRenderId(), block);
         RenderingRegistry.registerBlockHandler(renderer);
-    }
-
-    public CustomItem getTabIcon() {
-        return obsidianEmblem;
     }
 }

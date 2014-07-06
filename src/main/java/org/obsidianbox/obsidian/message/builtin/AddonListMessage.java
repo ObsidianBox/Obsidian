@@ -31,17 +31,16 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
 import org.obsidianbox.magma.addon.Addon;
 import org.obsidianbox.magma.message.Message;
+import org.obsidianbox.magma.message.MessageHandler;
 import org.obsidianbox.obsidian.resource.CommonFileSystem;
 import org.obsidianbox.obsidian.util.map.SerializableHashMap;
 import org.obsidianbox.magma.Game;
 import org.obsidianbox.obsidian.addon.CommonAddonManager;
 
 /**
- * Message used to communicate the addon list between client and server.
- *
- * Client: Sends the addon list to the server Server: Sends an empty packet that acts as a request to the client to return this list
+ * Communicates the addon list between client and server.
  */
-public class AddonListMessage implements Message {
+public class AddonListMessage implements Message, MessageHandler<AddonListMessage> {
     private SerializableHashMap map;
 
     public AddonListMessage() {}
@@ -71,14 +70,13 @@ public class AddonListMessage implements Message {
     }
 
     @Override
-    public void handle(Game game, EntityPlayer player) {
+    public Message handle(Game game, EntityPlayer player, AddonListMessage message) {
         switch (game.getSide()) {
             case CLIENT:
                 game.getLogger().info("Server has requested my addon list, sending...");
                 final SerializableHashMap addonMD5s = ((CommonAddonManager) game.getAddonManager()).getAddonMD5s();
                 game.getLogger().info(addonMD5s);
-                game.getPipeline().sendToServer(new AddonListMessage(addonMD5s));
-                break;
+                return new AddonListMessage(addonMD5s);
             case SERVER:
                 game.getLogger().info("Received a list of addons for player " + player.getDisplayName());
                 game.getLogger().info("Checking if " + player.getDisplayName() + " needs addon installations");
@@ -119,5 +117,6 @@ public class AddonListMessage implements Message {
                 }
                 break;
         }
+        return null;
     }
 }

@@ -29,7 +29,7 @@ import cpw.mods.fml.relauncher.Side;
 import org.junit.Test;
 import org.obsidianbox.magma.addon.Addon;
 import org.obsidianbox.magma.lang.Languages;
-import org.obsidianbox.obsidian.lang.CommonLanguageRegistry;
+import org.obsidianbox.obsidian.lang.CommonLanguageManager;
 import org.obsidianbox.obsidian.addon.CommonAddonManager;
 
 import static org.junit.Assert.assertTrue;
@@ -39,7 +39,7 @@ public class LanguageRegistryTest {
     public void test() {
         final Game game = new Game(Side.SERVER);
         game.setAddonManager(new CommonAddonManager(game));
-        game.setLanguages(new CommonLanguageRegistry(game));
+        game.setLanguages(new CommonLanguageManager(game));
 
         final Addon addon = ((CommonAddonManager) game.getAddonManager()).getInternalAddon();
         game.getLanguages().put(addon, Languages.ENGLISH_AMERICAN, "internal.test.testy_text", "Testy Test!");
