@@ -9,7 +9,7 @@ Obsidian is a framework that extends Forge to deliver server-side content on dem
 
 ## Prerequisites
 * [Java] 7
-* [Gradle] 1.12
+* [Gradle] 1.12+
 
 ## Cloning
 If you are using Git, use this command to clone the project: `git clone git@github.com:ObsidianBox/Obsidian.git`
@@ -18,16 +18,16 @@ If you are using Git, use this command to clone the project: `git clone git@gith
 __Note:__ If you do not have [Gradle] installed then use ./gradlew for Unix systems or Git Bash and gradlew.bat for Windows systems in place of any 'gradle' command.
 
 __For [Eclipse]__  
-  1. Run `gradle cleanCache --refresh-dependencies` to pull in dependencies cleanly.  
-  2. Run `gradle setupDecompWorkspace`  
+  1. Run `gradle clean cleanCache`  
+  2. Run `gradle setupDecompWorkspace --refresh-dependencies`  
   3. Make sure you have the Gradle plugin installed (Help > Eclipse Marketplace > Gradle Integration Plugin)  
   4. Import Obsidian as a Gradle project (File > Import)
   5. Select the root folder for Obsidian and click **Build Model**
   6. Check Obsidian when it finishes building and click **Finish**
 
 __For [IntelliJ]__  
-  1. Run `gradle cleanCache --refresh-dependencies` to pull in dependencies cleanly.  
-  2. Run `gradle setupDecompWorkspace`  
+  1. Run `gradle clean cleanCache`  
+  2. Run `gradle setupDecompWorkspace --refresh-dependencies`  
   3. Make sure you have the Gradle plugin enabled (File > Settings > Plugins).  
   4. Click File > Import Module and select the **build.gradle** file for Obsidian.
 
@@ -51,22 +51,20 @@ __For [IntelliJ]__
 
 __Client__
 
-|     Property      | Value                                                                                                   |
-|:-----------------:|:--------------------------------------------------------------------------------------------------------|
-|    Main class     | net.minecraft.launchwrapper.Launch                                                                      |
-|    VM options     | -Xmx1G -Xms512M -Dfml.ignoreInvalidMinecraftCertificates=true -Djava.library.path="../../build/natives" |
-|   Program args    | --version 1.7.10 --tweakClass cpw.mods.fml.common.launcher.FMLTweaker --username=Obsidian --accessToken FML --userProperties={}                                                                                                       |
+|     Property      | Value                                     |
+|:-----------------:|:------------------------------------------|
+|    Main class     | GradleStart                               |
+|    VM options     | -Djava.library.path="../../build/natives" |
 | Working directory | ~/run/client (Included in project)                                                                      |
 | Module classpath  | Obsidian (IntelliJ Only)                                                                                |
 
 __Server__
 
-|     Property      | Value                                                         |
-|:-----------------:|:--------------------------------------------------------------|
-|    Main class     | cpw.mods.fml.relauncher.ServerLaunchWrapper                   |
-|    VM options     | -Xmx1G -Xms512M -Dfml.ignoreInvalidMinecraftCertificates=true |
-| Working directory | ~/run/server (Included in project)                            |
-| Module classpath  | Obsidian (IntelliJ Only)                                      |
+|     Property      | Value                              |
+|:-----------------:|:-----------------------------------|
+|    Main class     | GradleStartServer                  |
+| Working directory | ~/run/server (Included in project) |
+| Module classpath  | Obsidian (IntelliJ Only)           |
 
 
 ## Building
