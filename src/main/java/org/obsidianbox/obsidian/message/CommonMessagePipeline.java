@@ -99,14 +99,21 @@ public class CommonMessagePipeline extends FMLIndexedMessageToMessageCodec<Messa
         if (handler == null) {
             return;
         }
+        Message toSendBack;
         // Handle the message
         switch (game.getSide()) {
             case CLIENT:
-                handler.handle(game, getClientPlayer(), message);
+                toSendBack = handler.handle(game, getClientPlayer(), message);
+                if (toSendBack != null) {
+                    sendToServer(toSendBack);
+                }
                 break;
             case SERVER:
                 INetHandler net = ctx.channel().attr(NetworkRegistry.NET_HANDLER).get();
-                handler.handle(game, ((NetHandlerPlayServer) net).playerEntity, message);
+                toSendBack = handler.handle(game, ((NetHandlerPlayServer) net).playerEntity, message);
+                if (toSendBack != null) {
+                    sendTo(toSendBack, ((NetHandlerPlayServer) net).playerEntity);
+                }
                 break;
             default:
         }
