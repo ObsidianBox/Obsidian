@@ -43,7 +43,7 @@ buildscript {
         classpath 'nl.javadude.gradle.plugins:license-gradle-plugin:0.9.0'
         classpath 'net.saliman:gradle-cobertura-plugin:2.2.4' // Coveralls plugin dependency
         classpath 'org.kt3k.gradle.plugin:coveralls-gradle-plugin:0.5.0'
-        classpath 'com.github.jengelman.gradle.plugins:shadow:1.0.1'
+        classpath 'com.github.jengelman.gradle.plugins:shadow:1.0.2'
     }
 }
 
@@ -70,7 +70,7 @@ shadowJar {
     destinationDir = file("build/distributions")
     dependencies {
         include(dependency('com.flowpowered:flow-math:0.1.0-SNAPSHOT'))
-        include(dependency('org.obsidianbox.magma:magma:1.0.0-SNAPSHOT'))
+        include(dependency('org.obsidianbox:magma:1.0.0-SNAPSHOT'))
         include(dependency('org.spout:caustic-api:1.0.0-SNAPSHOT'))
         include(dependency('org.spout:caustic-lwjgl:1.0.0-SNAPSHOT'))
     }
