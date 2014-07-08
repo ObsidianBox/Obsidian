@@ -104,10 +104,4 @@ public class GameListener {
     public void onPlayerJoin(PlayerEvent.PlayerLoggedInEvent event) {
         game.getPipeline().sendTo(new AddonListMessage(), event.player);
     }
-
-    @SubscribeEvent
-    public void onMissingMismappings(FMLMissingMappingsEvent.MissingMapping event) {
-        game.getLogger().info(game.getSide().toString() + " fired MissingMappingsEvent!");
-        event.ignore();
-    }
 }

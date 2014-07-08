@@ -29,6 +29,7 @@ import cpw.mods.fml.common.FMLCommonHandler;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
+import cpw.mods.fml.common.event.FMLMissingMappingsEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 import cpw.mods.fml.common.network.FMLNetworkEvent;
@@ -179,6 +180,12 @@ public class ObsidianMod {
             // Enable addons
             addonManager.enable();
         }
+    }
+
+    @EventHandler
+    public void onMissingMismappings(FMLMissingMappingsEvent.MissingMapping event) {
+        game.getLogger().info(game.getSide().toString() + " fired MissingMappingsEvent!");
+        event.ignore();
     }
 
     @SideOnly(Side.CLIENT)
