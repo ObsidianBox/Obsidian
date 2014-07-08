@@ -23,6 +23,7 @@
  */
 package org.obsidianbox.obsidian;
 
+import cpw.mods.fml.common.event.FMLMissingMappingsEvent;
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 import cpw.mods.fml.common.gameevent.PlayerEvent;
 import cpw.mods.fml.common.gameevent.TickEvent;
@@ -102,5 +103,11 @@ public class GameListener {
     @SideOnly (Side.SERVER)
     public void onPlayerJoin(PlayerEvent.PlayerLoggedInEvent event) {
         game.getPipeline().sendTo(new AddonListMessage(), event.player);
+    }
+
+    @SubscribeEvent
+    public void onMissingMismappings(FMLMissingMappingsEvent.MissingMapping event) {
+        game.getLogger().info(game.getSide().toString() + " fired MissingMappingsEvent!");
+        event.ignore();
     }
 }
