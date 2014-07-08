@@ -40,7 +40,7 @@ public final class AddonClassLoader extends URLClassLoader {
 
     static {
         try {
-            addURLMethod = URLClassLoader.class.getMethod("addURL", URL.class);
+            addURLMethod = URLClassLoader.class.getDeclaredMethod("addURL", URL.class);
         } catch (NoSuchMethodException e) {
             e.printStackTrace();
         }
