@@ -31,6 +31,7 @@ import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.block.BlockPressurePlate;
 import net.minecraft.block.material.MapColor;
 import net.minecraft.block.material.Material;
+import net.minecraft.client.Minecraft;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemArmor;
 import net.minecraftforge.common.util.EnumHelper;
@@ -51,6 +52,7 @@ import org.obsidianbox.magma.block.fluid.SimpleBlockFluid;
 import org.obsidianbox.magma.block.renderer.SimpleBlockOBJRenderer;
 import org.obsidianbox.magma.item.SimpleArmor;
 import org.obsidianbox.magma.item.SimpleAxe;
+import org.obsidianbox.magma.item.SimpleBow;
 import org.obsidianbox.magma.item.SimpleItem;
 import org.obsidianbox.magma.item.SimplePickaxe;
 import org.obsidianbox.magma.item.SimpleSpade;
@@ -169,6 +171,8 @@ public final class InternalAddon extends Addon {
 
         final Material customTrapDoor = new Material(MapColor.woodColor);
         new SimpleTrapDoor(this, "custom_trapdoor", "Custom Trapdoor", customTrapDoor, true);
+
+        SimpleBow bow = new SimpleBow(this, "simple_bow", "Simple Bow", true, 1);
     }
 
     @SideOnly (Side.CLIENT)
