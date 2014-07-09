@@ -108,4 +108,4 @@ __Help! Things are not working!__
 [Issues]: http://obsidianbox.org/community/support/
 [Java]: http://java.oracle.com/
 [Source]: https://github.com/ObsidianBox/Obsidian/
-[MIT License]: http://www.tldrlegal.com/license/mit-license/
+[MIT License]: http://www.tldrlegal.com/license/mit-license
