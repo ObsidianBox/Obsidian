@@ -43,7 +43,9 @@ import org.obsidianbox.magma.addon.Addon;
 import org.obsidianbox.magma.addon.AddonDescription;
 import org.obsidianbox.magma.addon.AddonMode;
 import org.obsidianbox.magma.block.SimpleBlock;
+import org.obsidianbox.magma.block.SimpleCake;
 import org.obsidianbox.magma.block.SimpleFlower;
+import org.obsidianbox.magma.block.SimpleFlowerPot;
 import org.obsidianbox.magma.block.SimpleMovingBlock;
 import org.obsidianbox.magma.block.SimplePressurePlate;
 import org.obsidianbox.magma.block.SimpleSlab;
@@ -173,6 +175,10 @@ public final class InternalAddon extends Addon {
         new SimpleTrapDoor(this, "custom_trapdoor", "Custom Trapdoor", customTrapDoor, true);
 
         SimpleBow bow = new SimpleBow(this, "simple_bow", "Simple Bow", true, 1);
+
+        new SimpleCake(this, "custom_cake", "Custom Cake", Material.cake, true);
+
+        new SimpleFlowerPot(this, "custom_flower_pot", "Custom Flower Pot", true);
     }
 
     @SideOnly (Side.CLIENT)
