@@ -174,7 +174,7 @@ public final class InternalAddon extends Addon {
         final Material customTrapDoor = new Material(MapColor.woodColor);
         new SimpleTrapDoor(this, "custom_trapdoor", "Custom Trapdoor", customTrapDoor, true);
 
-        SimpleBow bow = new SimpleBow(this, "simple_bow", "Simple Bow", true, 1);
+        new SimpleBow(this, "simple_bow", "Simple Bow", true, 1);
 
         new SimpleCake(this, "custom_cake", "Custom Cake", Material.cake, true);
 
