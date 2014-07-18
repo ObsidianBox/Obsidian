@@ -25,11 +25,11 @@ package org.obsidianbox.obsidian;
 
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
-import org.obsidianbox.magma.lang.Languages;
-import org.obsidianbox.obsidian.addon.InternalAddon;
+
 import org.obsidianbox.magma.Game;
-import org.obsidianbox.magma.addon.Addon;
+import org.obsidianbox.magma.lang.Languages;
 import org.obsidianbox.obsidian.addon.CommonAddonManager;
+import org.obsidianbox.obsidian.addon.InternalAddon;
 
 public class CustomTabs extends CreativeTabs {
     private final InternalAddon addon;

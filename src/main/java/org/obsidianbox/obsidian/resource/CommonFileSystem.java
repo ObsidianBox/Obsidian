@@ -34,14 +34,15 @@ import java.nio.file.Paths;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.HashSet;
-import java.util.Set;
 import java.util.Map;
+import java.util.Set;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
-import org.obsidianbox.magma.resource.FileSystem;
+
 import org.obsidianbox.magma.Game;
 import org.obsidianbox.magma.addon.Addon;
+import org.obsidianbox.magma.resource.FileSystem;
 import org.obsidianbox.magma.resource.UnreachableURLException;
 
 public class CommonFileSystem implements FileSystem {

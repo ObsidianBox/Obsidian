@@ -42,6 +42,7 @@ import java.util.Set;
 import java.util.concurrent.ConcurrentHashMap;
 
 import org.apache.commons.lang3.builder.HashCodeBuilder;
+
 import org.obsidianbox.magma.util.map.DefaultedKey;
 import org.obsidianbox.magma.util.map.SerializableMap;
 import org.obsidianbox.obsidian.addon.AddonClassLoader;
@@ -115,7 +116,9 @@ public class SerializableHashMap implements SerializableMap {
 
     public Serializable remove(String key) {
         return map.remove(key);
-    }    @Override
+    }
+
+    @Override
     public <T> T get(String key, Class<T> clazz) {
         Serializable s = get(key);
         if (s != null) {
@@ -154,7 +157,7 @@ public class SerializableHashMap implements SerializableMap {
         return new EntrySet();
     }
 
-    @SuppressWarnings ("unchecked")
+    @SuppressWarnings("unchecked")
     @Override
     public <T extends Serializable> T get(Object key, T defaultValue) {
         if (key instanceof DefaultedKey) {
@@ -194,7 +197,7 @@ public class SerializableHashMap implements SerializableMap {
         return get(keyString, defaultValue);
     }
 
-    @SuppressWarnings ("unchecked")
+    @SuppressWarnings("unchecked")
     @Override
     public <T extends Serializable> T put(DefaultedKey<T> key, T value) {
         String keyString = key.getKeyString();
@@ -205,7 +208,7 @@ public class SerializableHashMap implements SerializableMap {
         }
     }
 
-    @SuppressWarnings ("unchecked")
+    @SuppressWarnings("unchecked")
     @Override
     public <T extends Serializable> T putIfAbsent(DefaultedKey<T> key, T value) {
         String keyString = key.getKeyString();
@@ -479,7 +482,7 @@ public class SerializableHashMap implements SerializableMap {
      * This deserializes only the data, as opposed to the whole object.
      */
     @Override
-    @SuppressWarnings ("unchecked")
+    @SuppressWarnings("unchecked")
     public void deserialize(byte[] serializedData, boolean wipe) throws IOException {
         if (wipe) {
             map.clear();
@@ -499,8 +502,6 @@ public class SerializableHashMap implements SerializableMap {
             throw new IllegalStateException("Unable to decompress SerializableHashMap", ex);
         }
     }
-
-
 
     @Override
     public void deserialize(byte[] compressedData) throws IOException {

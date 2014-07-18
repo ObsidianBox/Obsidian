@@ -29,8 +29,8 @@ import java.net.URL;
 
 import cpw.mods.fml.common.network.ByteBufUtils;
 import io.netty.buffer.ByteBuf;
-import net.minecraft.entity.player.EntityPlayer;
 import org.apache.commons.lang3.SerializationUtils;
+
 import org.obsidianbox.magma.Game;
 import org.obsidianbox.magma.message.Message;
 
@@ -38,7 +38,8 @@ public class DownloadLinkMessage implements Message {
     private String addonIdentifier;
     private URL url;
 
-    private DownloadLinkMessage() {}
+    private DownloadLinkMessage() {
+    }
 
     public DownloadLinkMessage(String addonIdentifier, String url) throws MalformedURLException {
         this(addonIdentifier, new URL(url));

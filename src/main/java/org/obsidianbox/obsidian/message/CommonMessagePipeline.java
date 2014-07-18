@@ -43,11 +43,12 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.network.INetHandler;
 import net.minecraft.network.NetHandlerPlayServer;
+
+import org.obsidianbox.magma.Game;
+import org.obsidianbox.magma.addon.Addon;
 import org.obsidianbox.magma.message.Message;
 import org.obsidianbox.magma.message.MessageHandler;
 import org.obsidianbox.magma.message.MessagePipeline;
-import org.obsidianbox.magma.Game;
-import org.obsidianbox.magma.addon.Addon;
 
 @ChannelHandler.Sharable
 public class CommonMessagePipeline extends FMLIndexedMessageToMessageCodec<Message> implements MessagePipeline {
@@ -119,7 +120,7 @@ public class CommonMessagePipeline extends FMLIndexedMessageToMessageCodec<Messa
         }
     }
 
-    @SideOnly (Side.CLIENT)
+    @SideOnly(Side.CLIENT)
     private EntityPlayer getClientPlayer() {
         return Minecraft.getMinecraft().thePlayer;
     }

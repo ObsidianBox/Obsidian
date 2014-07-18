@@ -37,22 +37,22 @@ import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.client.Minecraft;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.common.MinecraftForge;
-import org.lwjgl.opengl.Display;
+import org.lwjgl.opengl.*;
+import org.spout.renderer.lwjgl.gl32.GL32Context;
+
+import org.obsidianbox.magma.Game;
 import org.obsidianbox.magma.addon.AddonManager;
 import org.obsidianbox.magma.resource.FileSystem;
 import org.obsidianbox.magma.util.RenderUtil;
+import org.obsidianbox.obsidian.addon.CommonAddonManager;
+import org.obsidianbox.obsidian.addon.client.ClientAddonManager;
 import org.obsidianbox.obsidian.lang.CommonLanguageManager;
 import org.obsidianbox.obsidian.message.CommonMessagePipeline;
 import org.obsidianbox.obsidian.renderer.GuiRenderer;
 import org.obsidianbox.obsidian.resource.ClientFileSystem;
 import org.obsidianbox.obsidian.resource.CommonFileSystem;
-import org.obsidianbox.magma.Game;
-import org.obsidianbox.obsidian.addon.client.ClientAddonManager;
-import org.obsidianbox.obsidian.addon.CommonAddonManager;
 
-import org.spout.renderer.lwjgl.gl32.GL32Context;
-
-@Mod (modid = Game.MOD_ID)
+@Mod(modid = Game.MOD_ID)
 public class ObsidianMod {
     private static CustomTabs customTabs;
     private final Game game;

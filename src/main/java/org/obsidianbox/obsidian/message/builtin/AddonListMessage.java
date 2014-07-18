@@ -29,13 +29,14 @@ import java.util.Map;
 import io.netty.buffer.ByteBuf;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
+
+import org.obsidianbox.magma.Game;
 import org.obsidianbox.magma.addon.Addon;
 import org.obsidianbox.magma.message.Message;
 import org.obsidianbox.magma.message.MessageHandler;
+import org.obsidianbox.obsidian.addon.CommonAddonManager;
 import org.obsidianbox.obsidian.resource.CommonFileSystem;
 import org.obsidianbox.obsidian.util.map.SerializableHashMap;
-import org.obsidianbox.magma.Game;
-import org.obsidianbox.obsidian.addon.CommonAddonManager;
 
 /**
  * Communicates the addon list between client and server.
@@ -43,7 +44,8 @@ import org.obsidianbox.obsidian.addon.CommonAddonManager;
 public class AddonListMessage implements Message, MessageHandler<AddonListMessage> {
     private SerializableHashMap map;
 
-    public AddonListMessage() {}
+    public AddonListMessage() {
+    }
 
     public AddonListMessage(SerializableHashMap map) {
         this.map = map;

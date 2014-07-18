@@ -33,11 +33,11 @@ import net.minecraft.client.gui.ScaledResolution;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.client.event.GuiOpenEvent;
 import net.minecraftforge.client.event.RenderGameOverlayEvent;
-import org.lwjgl.opengl.GL11;
+import org.lwjgl.opengl.*;
+
+import org.obsidianbox.magma.Game;
 import org.obsidianbox.magma.util.RenderUtil;
 import org.obsidianbox.obsidian.gui.builtin.ObsidianMainMenu;
-import org.obsidianbox.magma.Game;
-import org.obsidianbox.obsidian.addon.CommonAddonManager;
 import org.obsidianbox.obsidian.message.builtin.AddonListMessage;
 
 public class GameListener {
@@ -50,7 +50,7 @@ public class GameListener {
     }
 
     @SubscribeEvent
-    @SideOnly (Side.CLIENT)
+    @SideOnly(Side.CLIENT)
     public void onClientRenderOverlay(RenderGameOverlayEvent event) {
         if (event.type == RenderGameOverlayEvent.ElementType.ALL) {
             game.getGuiRenderer().render();
@@ -58,7 +58,7 @@ public class GameListener {
     }
 
     @SubscribeEvent
-    @SideOnly (Side.CLIENT)
+    @SideOnly(Side.CLIENT)
     public void onClientRenderWorldTick(TickEvent.RenderTickEvent event) {
         // End of tick and in-game
         if (event.phase == TickEvent.Phase.END && RenderUtil.MINECRAFT.currentScreen == null) {
@@ -90,7 +90,7 @@ public class GameListener {
     }
 
     @SubscribeEvent
-    @SideOnly (Side.CLIENT)
+    @SideOnly(Side.CLIENT)
     public void onGuiOpen(GuiOpenEvent event) {
         // TODO Check config file, see if they want to use our menu
         if (event.gui instanceof GuiMainMenu) {
@@ -99,7 +99,7 @@ public class GameListener {
     }
 
     @SubscribeEvent
-    @SideOnly (Side.SERVER)
+    @SideOnly(Side.SERVER)
     public void onPlayerJoin(PlayerEvent.PlayerLoggedInEvent event) {
         game.getPipeline().sendTo(new AddonListMessage(), event.player);
     }

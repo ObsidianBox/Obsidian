@@ -29,6 +29,7 @@ import java.util.Random;
 import net.minecraft.client.gui.Gui;
 import net.minecraft.util.ResourceLocation;
 import org.lwjgl.opengl.*;
+
 import org.obsidianbox.magma.Game;
 import org.obsidianbox.magma.util.RenderUtil;
 

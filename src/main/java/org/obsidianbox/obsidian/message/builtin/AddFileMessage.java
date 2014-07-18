@@ -25,31 +25,25 @@ package org.obsidianbox.obsidian.message.builtin;
 
 import java.io.IOException;
 import java.nio.file.Path;
-import java.nio.file.Files;
-import java.nio.file.Paths;
-import java.nio.file.StandardOpenOption;
 
 import cpw.mods.fml.common.network.ByteBufUtils;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import io.netty.buffer.ByteBuf;
-import net.minecraft.client.Minecraft;
-import net.minecraft.entity.player.EntityPlayer;
 import org.apache.commons.lang3.SerializationUtils;
-import org.obsidianbox.magma.addon.InvalidAddonException;
-import org.obsidianbox.magma.addon.InvalidDescriptionException;
-import org.obsidianbox.magma.message.Message;
-import org.obsidianbox.obsidian.resource.CommonFileSystem;
+
 import org.obsidianbox.magma.Game;
+import org.obsidianbox.magma.message.Message;
 
 public class AddFileMessage implements Message {
     private String addonIdentifier;
     private String name;
     private byte[] data;
 
-    private AddFileMessage() {}
+    private AddFileMessage() {
+    }
 
-    @SideOnly (Side.SERVER)
+    @SideOnly(Side.SERVER)
     public AddFileMessage(String addonIdentifier, String name, Path path) {
         this.addonIdentifier = addonIdentifier;
         this.name = name;

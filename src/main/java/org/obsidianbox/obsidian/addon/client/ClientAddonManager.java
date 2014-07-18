@@ -30,12 +30,13 @@ import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.resources.IResourcePack;
+
+import org.obsidianbox.magma.Game;
+import org.obsidianbox.magma.addon.Addon;
 import org.obsidianbox.magma.addon.InvalidAddonException;
 import org.obsidianbox.magma.addon.InvalidDescriptionException;
 import org.obsidianbox.obsidian.addon.CommonAddonManager;
 import org.obsidianbox.obsidian.resource.AddonResourcePack;
-import org.obsidianbox.magma.Game;
-import org.obsidianbox.magma.addon.Addon;
 import org.obsidianbox.obsidian.util.ReflectionEntry;
 
 //TODO Override parent methods and show GUI acceptance screens
@@ -47,7 +48,7 @@ public final class ClientAddonManager extends CommonAddonManager {
 
     @Override
     public Addon loadAddon(Path path) throws InvalidAddonException, InvalidDescriptionException {
-        final Addon addon =  super.loadAddon(path);
+        final Addon addon = super.loadAddon(path);
         final AddonResourcePack pack = new AddonResourcePack(addon);
         injectAddonPack(pack);
         game.getLogger().info("Injected ResourcePack for addon [" + addon.getDescription().getIdentifier() + "]");

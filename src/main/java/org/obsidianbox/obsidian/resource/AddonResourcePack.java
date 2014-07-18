@@ -32,6 +32,7 @@ import net.minecraft.client.resources.IResourcePack;
 import net.minecraft.client.resources.data.IMetadataSection;
 import net.minecraft.client.resources.data.IMetadataSerializer;
 import net.minecraft.util.ResourceLocation;
+
 import org.obsidianbox.magma.addon.Addon;
 
 public class AddonResourcePack implements IResourcePack {

@@ -32,6 +32,7 @@ import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiScreen;
+
 import org.obsidianbox.magma.gui.Form;
 import org.obsidianbox.magma.gui.Stack;
 

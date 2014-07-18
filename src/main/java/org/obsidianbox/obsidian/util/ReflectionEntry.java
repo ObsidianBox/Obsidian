@@ -23,9 +23,9 @@
  */
 package org.obsidianbox.obsidian.util;
 
-import java.util.List;
-import java.lang.reflect.Modifier;
 import java.lang.reflect.Field;
+import java.lang.reflect.Modifier;
+import java.util.List;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
@@ -44,8 +44,7 @@ public final class ReflectionEntry<C, T> {
             // TODO Does this exist on the server?
             Minecraft.class.getDeclaredField("running");
             isDevEnvironment = true;
-        }
-        catch (SecurityException | NoSuchFieldException ignore) {
+        } catch (SecurityException | NoSuchFieldException ignore) {
             isDevEnvironment = false;
         }
     }
@@ -74,7 +73,7 @@ public final class ReflectionEntry<C, T> {
         try {
             Field field = containingClass.getDeclaredField(actualName);
             field.setAccessible(true);
-            return (T)field.get(instance);
+            return (T) field.get(instance);
         } catch (Exception ex) {
             ex.printStackTrace();
         }

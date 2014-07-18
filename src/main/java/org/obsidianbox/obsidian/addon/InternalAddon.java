@@ -31,7 +31,6 @@ import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.block.BlockPressurePlate;
 import net.minecraft.block.material.MapColor;
 import net.minecraft.block.material.Material;
-import net.minecraft.client.Minecraft;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemArmor;
 import net.minecraftforge.common.util.EnumHelper;
@@ -143,45 +142,45 @@ public final class InternalAddon extends Addon {
         new SimpleMovingBlock(this, "9b", "9b (Black)", customMovingMaterial, true);
         new SimpleMovingBlock(this, "9w", "9w (White)", customMovingMaterial, true);
 
-        new SimpleSword(this, "custom_blade", "Custom Blade", Item.ToolMaterial.EMERALD, true);
-        new SimpleAxe(this, "custom_axe", "Custom Axe", Item.ToolMaterial.EMERALD, true);
-        new SimplePickaxe(this, "custom_pickaxe", "Custom Pickaxe", Item.ToolMaterial.EMERALD, true);
-        new SimpleSpade(this, "custom_shovel", "Custom Shovel", Item.ToolMaterial.EMERALD, true);
+        new SimpleSword(this, "simple_blade", "Simple Blade", Item.ToolMaterial.EMERALD, true);
+        new SimpleAxe(this, "simple_axe", "Simple Axe", Item.ToolMaterial.EMERALD, true);
+        new SimplePickaxe(this, "simple_pickaxe", "Simple Pickaxe", Item.ToolMaterial.EMERALD, true);
+        new SimpleSpade(this, "simple_shovel", "Simple Shovel", Item.ToolMaterial.EMERALD, true);
 
         final ItemArmor.ArmorMaterial customArmorMaterial = EnumHelper.addArmorMaterial("Custom", 100, new int[] {2, 3, 2, 2}, 15);
-        new SimpleArmor(this, "custom_helmet", "Custom Helmet", customArmorMaterial, SimpleArmor.ArmorType.HEAD, true);
-        new SimpleArmor(this, "custom_chestplate", "Custom Chestplate", customArmorMaterial, SimpleArmor.ArmorType.TORSO, true);
-        new SimpleArmor(this, "custom_leggings", "Custom Leggings", customArmorMaterial, SimpleArmor.ArmorType.LEGS, true);
-        new SimpleArmor(this, "custom_boots", "Custom Boots", customArmorMaterial, SimpleArmor.ArmorType.FEET, true);
+        new SimpleArmor(this, "simple_helmet", "Simple Helmet", customArmorMaterial, SimpleArmor.ArmorType.HEAD, true);
+        new SimpleArmor(this, "simple_chestplate", "Simple Chestplate", customArmorMaterial, SimpleArmor.ArmorType.TORSO, true);
+        new SimpleArmor(this, "simple_leggings", "Simple Leggings", customArmorMaterial, SimpleArmor.ArmorType.LEGS, true);
+        new SimpleArmor(this, "simple_boots", "Simple Boots", customArmorMaterial, SimpleArmor.ArmorType.FEET, true);
 
         final Material customSlabMaterial = new Material(MapColor.blueColor);
-        new SimpleSlab(this, "custom_slab", "Custom Slab", customSlabMaterial, true);
+        new SimpleSlab(this, "simple_slab", "Simple Slab", customSlabMaterial, true);
 
         final Material customBlockMaterial = new Material(MapColor.clayColor);
-        final SimpleBlock block = new SimpleBlock(this, "custom_renderer", "Custom Renderer", customBlockMaterial, true);
+        final SimpleBlock block = new SimpleBlock(this, "simple_renderer", "Simple Renderer", customBlockMaterial, true);
         if (getGame().getSide().isClient()) {
             setupBlockRenderer(block);
         }
 
         final Material customFluidMaterial = new Material(MapColor.diamondColor);
-        new SimpleBlockFluid(this, "custom_fluid", "Custom Fluid", customFluidMaterial, true);
+        new SimpleBlockFluid(this, "simple_fluid", "Simple Fluid", customFluidMaterial, true);
 
         final Material customPressurePlate = new Material(MapColor.adobeColor);
-        new SimplePressurePlate(this, "custom_plate", "Custom Plate", customPressurePlate, true, BlockPressurePlate.Sensitivity.everything);
+        new SimplePressurePlate(this, "simple_plate", "Simple Plate", customPressurePlate, true, BlockPressurePlate.Sensitivity.everything);
 
-        new SimpleFlower(this, "custom_flower", "Custom Flower", true);
+        new SimpleFlower(this, "simple_flower", "Simple Flower", true);
 
         final Material customTrapDoor = new Material(MapColor.woodColor);
-        new SimpleTrapDoor(this, "custom_trapdoor", "Custom Trapdoor", customTrapDoor, true);
+        new SimpleTrapDoor(this, "simple_trapdoor", "Simple Trapdoor", customTrapDoor, true);
 
         new SimpleBow(this, "simple_bow", "Simple Bow", true, 1);
 
-        new SimpleCake(this, "custom_cake", "Custom Cake", Material.cake, true);
+        new SimpleCake(this, "simple_cake", "Simple Cake", Material.cake, true);
 
-        new SimpleFlowerPot(this, "custom_flower_pot", "Custom Flower Pot", true);
+        new SimpleFlowerPot(this, "simple_flower_pot", "Simple Flower Pot", true);
     }
 
-    @SideOnly (Side.CLIENT)
+    @SideOnly(Side.CLIENT)
     private void setupBlockRenderer(SimpleBlock block) {
         final SimpleBlockOBJRenderer renderer = new SimpleBlockOBJRenderer(this, RenderingRegistry.getNextAvailableRenderId(), block);
         RenderingRegistry.registerBlockHandler(renderer);

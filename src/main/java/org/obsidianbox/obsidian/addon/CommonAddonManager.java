@@ -43,15 +43,16 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import net.minecraftforge.common.MinecraftForge;
 import org.apache.logging.log4j.LogManager;
+
 import org.obsidianbox.magma.Game;
-import org.obsidianbox.magma.util.FileUtils;
-import org.obsidianbox.obsidian.resource.CommonFileSystem;
-import org.obsidianbox.obsidian.util.map.SerializableHashMap;
 import org.obsidianbox.magma.addon.Addon;
 import org.obsidianbox.magma.addon.AddonDescription;
 import org.obsidianbox.magma.addon.AddonManager;
 import org.obsidianbox.magma.addon.InvalidAddonException;
 import org.obsidianbox.magma.addon.InvalidDescriptionException;
+import org.obsidianbox.magma.util.FileUtils;
+import org.obsidianbox.obsidian.resource.CommonFileSystem;
+import org.obsidianbox.obsidian.util.map.SerializableHashMap;
 
 public class CommonAddonManager implements AddonManager {
     private static final String ADDON_JSON = "addon.info";

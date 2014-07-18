@@ -30,20 +30,11 @@ import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.Map;
 
-import com.flowpowered.math.vector.Vector2f;
-import com.flowpowered.math.vector.Vector3f;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.client.Minecraft;
 import net.minecraft.util.ResourceLocation;
-import org.lwjgl.opengl.GL11;
-import org.lwjgl.opengl.GL20;
-import org.lwjgl.opengl.GL30;
-import org.obsidianbox.magma.Game;
-import org.obsidianbox.magma.addon.Addon;
-import org.obsidianbox.magma.renderer.Renderer;
-import org.obsidianbox.obsidian.addon.CommonAddonManager;
-
+import org.lwjgl.opengl.*;
 import org.spout.renderer.api.Camera;
 import org.spout.renderer.api.Material;
 import org.spout.renderer.api.Pipeline;
@@ -62,10 +53,18 @@ import org.spout.renderer.api.util.MeshGenerator;
 import org.spout.renderer.api.util.Rectangle;
 import org.spout.renderer.lwjgl.LWJGLUtil;
 
+import com.flowpowered.math.vector.Vector2f;
+import com.flowpowered.math.vector.Vector3f;
+
+import org.obsidianbox.magma.Game;
+import org.obsidianbox.magma.addon.Addon;
+import org.obsidianbox.magma.renderer.Renderer;
+import org.obsidianbox.obsidian.addon.CommonAddonManager;
+
 /**
  * Renders the Addon GUI API using the Caustic rendering library.
  */
-@SideOnly (Side.CLIENT)
+@SideOnly(Side.CLIENT)
 public class GuiRenderer extends Renderer {
     // Caustic GUI properties
     private final LinkedList<Model> guiRenderList = new LinkedList<>();

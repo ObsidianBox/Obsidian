@@ -31,7 +31,8 @@ import net.minecraft.client.gui.GuiScreen;
 import net.minecraft.client.gui.GuiSelectWorld;
 import net.minecraft.client.resources.I18n;
 import net.minecraft.util.ResourceLocation;
-import org.lwjgl.opengl.GL11;
+import org.lwjgl.opengl.*;
+
 import org.obsidianbox.magma.Game;
 import org.obsidianbox.magma.util.RenderUtil;
 
