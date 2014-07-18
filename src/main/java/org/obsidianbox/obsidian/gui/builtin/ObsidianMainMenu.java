@@ -45,6 +45,7 @@ public class ObsidianMainMenu extends GuiScreen {
         addButtons();
     }
 
+    @SuppressWarnings("unchecked")
     private void addButtons() {
         final String singleplayerText = I18n.format("menu.singleplayer");
         final String multiplayerText = I18n.format("menu.multiplayer");
