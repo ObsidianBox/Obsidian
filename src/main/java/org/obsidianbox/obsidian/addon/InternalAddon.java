@@ -42,9 +42,11 @@ import org.obsidianbox.magma.addon.Addon;
 import org.obsidianbox.magma.addon.AddonDescription;
 import org.obsidianbox.magma.addon.AddonMode;
 import org.obsidianbox.magma.block.SimpleBlock;
+import org.obsidianbox.magma.block.SimpleCactus;
 import org.obsidianbox.magma.block.SimpleCake;
 import org.obsidianbox.magma.block.SimpleFlower;
 import org.obsidianbox.magma.block.SimpleFlowerPot;
+import org.obsidianbox.magma.block.SimpleLever;
 import org.obsidianbox.magma.block.SimpleMovingBlock;
 import org.obsidianbox.magma.block.SimplePressurePlate;
 import org.obsidianbox.magma.block.SimpleSlab;
@@ -178,6 +180,10 @@ public final class InternalAddon extends Addon {
         new SimpleCake(this, "simple_cake", "Simple Cake", Material.cake, true);
 
         new SimpleFlowerPot(this, "simple_flower_pot", "Simple Flower Pot", true);
+
+        new SimpleLever(this, "simple_lever", "SimpleLever", true);
+
+        new SimpleCactus(this, "simple_cactus", "Simple Cactus", true);
     }
 
     @SideOnly(Side.CLIENT)
