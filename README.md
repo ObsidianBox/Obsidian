@@ -44,7 +44,7 @@ __For [IntelliJ]__
   1. Go to **Run > Edit Configurations**.  
   2. Click the green + button and select **Application**.  
   3. Set the name as `Obsidian (Client)` and apply the information for Client below.
-  4. Repeat step 2 and set the name as `Obsidian (Server)` and apply the information for Server below.
+  4. Repeat step 2 and set the name as `Obsidian (Server)` and apply the information for Server below.  
   4a. When launching the server for the first time, it will shutdown by itself. You will need to modify the server.properties to set onlinemode=false and modify the eula.txt to set eula=true (this means you agree to the Mojang EULA, if you do not wish to do this then you cannot run the server).
 
 __Client__
@@ -53,8 +53,8 @@ __Client__
 |:-----------------:|:------------------------------------------|
 |    Main class     | GradleStart                               |
 |    VM options     | -Djava.library.path="../../build/natives" |
-| Working directory | ~/run/client (Included in project)                                                                      |
-| Module classpath  | Obsidian (IntelliJ Only)                                                                                |
+| Working directory | ~/run/client (Included in project)        |
+| Module classpath  | Obsidian (IntelliJ Only)                  |
 
 __Server__
 
