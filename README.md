@@ -18,18 +18,16 @@ If you are using Git, use this command to clone the project: `git clone git@gith
 __Note:__ If you do not have [Gradle] installed then use ./gradlew for Unix systems or Git Bash and gradlew.bat for Windows systems in place of any 'gradle' command.
 
 __For [Eclipse]__  
-  1. Run `gradle clean cleanCache`  
-  2. Run `gradle setupDecompWorkspace --refresh-dependencies`  
-  3. Make sure you have the Gradle plugin installed (Help > Eclipse Marketplace > Gradle Integration Plugin)  
-  4. Import Obsidian as a Gradle project (File > Import)
-  5. Select the root folder for Obsidian and click **Build Model**
-  6. Check Obsidian when it finishes building and click **Finish**
+  1. Run `gradle setupDecompWorkspace --refresh-dependencies`  
+  2. Make sure you have the Gradle plugin installed (Help > Eclipse Marketplace > Gradle Integration Plugin)  
+  3. Import Obsidian as a Gradle project (File > Import)
+  4. Select the root folder for Obsidian and click **Build Model**
+  5. Check Obsidian when it finishes building and click **Finish**
 
 __For [IntelliJ]__  
-  1. Run `gradle clean cleanCache`  
-  2. Run `gradle setupDecompWorkspace --refresh-dependencies`  
-  3. Make sure you have the Gradle plugin enabled (File > Settings > Plugins).  
-  4. Click File > Import Module and select the **build.gradle** file for Obsidian.
+  1. Run `gradle setupDecompWorkspace --refresh-dependencies`  
+  2. Make sure you have the Gradle plugin enabled (File > Settings > Plugins).  
+  3. Click File > Import Module and select the **build.gradle** file for Obsidian.
 
 ## Running
 __Note 1:__ The following is aimed to help you setup run configurations for Eclipse and IntelliJ, if you do not want to be able to run Obsidian directly from your IDE then you can skip this.
@@ -97,7 +95,7 @@ __A dependency was added, but my IDE is missing it! How do I add it?__
 >If a new dependency was added, you can just restart your IDE and the Gradle plugin for that IDE should pull in the new dependencies.
 
 __Help! Things are not working!__
->Some issues can be resolved by deleting the '.gradle' folder in your user directory and running through the setup steps again. Otherwise if you are having trouble with something that the README does not cover, feel free to join our IRC channel and ask for assistance.
+>Some issues can be resolved by deleting the '.gradle' folder in your user directory and running through the setup steps again, or even running `gradle cleanCache` and running through the setup again. Otherwise if you are having trouble with something that the README does not cover, feel free to join our IRC channel and ask for assistance.
 
 [Chat]: http://obsidianbox.org/chat/
 [Donate]: http://obsidianbox.org/donate/
